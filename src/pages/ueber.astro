@@ -5,7 +5,49 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
 ---
 
 <Layout>
-  <ContentPage title="Über">
+  <ContentPage title="Über" showDisclaimer={false}>
+    <p>
+      <b>Karenz Wizard</b> - Hilfe zur Selbsthilfe für Väter, die nicht nur zwei Monate in Karenz gehen
+      möchten. Mit interaktivem Planer für das einkommensabhängige Kinderbetreuungsgeld, Schritt für Schritt
+      Anleitung, Infos zu #EqualCare / "Halbe Halbe" und mehr. Für mehr Väterbeteiligung! 💪
+    </p>
+    <p>
+      <i>Ein privates Projekt von <a href="https://matthias-andrasch.eu">Matthias Andrasch</a>.</i>
+    </p>
+
+    <h3>Dieses Tool sollte eigentlich die AK oder eine NGO betreiben!</h3>
+    <p>
+      Dieses Projekt ist ein temporärer Prototyp. Ich habe es als Privatperson entwickelt, um zu
+      zeigen, dass ein Online-Tool für gleichberechtigte Aufteilung der Karenz an sich einfach
+      umsetzbar ist: So enstand als erstes der <a href="/eakbg-planer/">der eaKBG-Planer</a> auf dieser
+      Webseite.
+    </p>
+    <p>
+      Meiner bescheidenen Ansicht nach sollte eine öffentliche Behörde, die Arbeiterkammer oder eine
+      NGO ein solches Tool offiziell betreiben. Insbesondere, um mehr Gleichberechtigung bei der
+      Kinderbetreuung zu gewährleisten: Aktuell nehmen Väter in Österreich nur die minimal
+      erforderlichen 2 Monate Karenz - wenn überhaupt. Ich behaupte: Manchmal aus Unwissenheit, dass
+      mehr Monate überhaupt möglich wären (oder die Eltern-Teilzeit im 20h/20h-Modell). So zeigen
+      Videos der AK nur Beispiele mit "2 Monaten Väterkarenz". Ein Online-Tool kann vielfältige Wege
+      aufzeigen.
+    </p>
+    <p>
+      To be fair: Der Sozialstaat Österreich fördert allerdings auch nur 12+2 Monate mit gutem Geld
+      und wenig Einkommensverlust, für eine längere Karenz muss man sich eine "unbezahlte Karenz"
+      leisten können - diese Problematik wird mit diesem Tool ebenso sichtbar gemacht. Die
+      Eltern-Teilzeit im 20h/20h-Modell, bei welcher Mutter und Vater 20h/Woche arbeiten und sich
+      die Betreuung teilen, stellt allerdings ebenso eine Alternative für Gleichberechtigung dar.
+    </p>
+    <p>
+      Und natürlich müssen auch die Führungskräfte in Unternehmen Verantwortung übernehmen - leider
+      gibt es auch heute noch Diskriminierung, Drohungen - bis hin zum späteren Arbeitsplatzverlust
+      (siehe u.a. <a href="https://www.spoe.at/elternkarenz-ergebnisse/"
+        >SPÖ-Umfrage zu Väterkarenz</a
+      >).
+    </p>
+
+    <h3>Die Entstehungsgeschichte</h3>
+
     <p>
       Eigentlich wollte ich als Papa möglichst „halbe-halbe“ machen bei der Karenz, aber die
       Realität hat mich bei der Planung schnell eingeholt: Mein Partnerin wollte gern 12 Monate
@@ -23,37 +65,6 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       Informationen zu den bisher üblichen zwei Mindestmonaten Väterkarenz greifen - während die Mütter
       12 oder mehr Monate übernehmen.
     </p>
-
-    <h3>Dieses Tool sollte die AK oder eine NGO betreiben!</h3>
-    <p>
-      Dieses Projekt ist ein temporärer Prototyp. Ich habe es als Privatperson entwickelt, um zu
-      zeigen, dass ein Online-Tool für die Karenzplanung einfach umsetzbar ist. Ein solches Tool
-      fehlt aktuell dringend, die Karenzplanung ist unnötig kompliziert.
-    </p>
-    <p>
-      Meiner bescheidenen Ansicht nach sollte eine öffentliche Behörde, die Arbeiterkammer oder eine
-      NGO ein solches Tool offiziell betreiben. Insbesondere, um mehr Gleichberechtigung bei der
-      Kinderbetreuung zu gewährleisten: Aktuell nehmen Väter in Österreich nur die minimal
-      erforderlichen 2 Monate Karenz - wenn überhaupt. Ich behaupte: Manchmal aus Unwissenheit, dass
-      mehr Monate überhaupt möglich wären. So zeigen Videos der AK nur Beispiele mit "2 Monaten
-      Väterkarenz". Ein Online-Tool kann vielfältige Wege aufzeigen.
-    </p>
-    <p>
-      To be fair: Der Sozialstaat Österreich fördert allerdings auch nur 12+2 Monate mit gutem Geld
-      und wenig Einkommensverlust, für eine längere Karenz muss man sich eine "unbezahlte Karenz"
-      leisten können - diese Problematik wird mit diesem Tool ebenso sichtbar gemacht. Die
-      Eltern-Teilzeit im 20h/20h-Modell, bei welcher Mutter und Vater 20h/Woche arbeiten und sich
-      die Betreuung teilen, stellt allerdings eine Alternative für Gleichberechtigung dar.
-    </p>
-    <p>
-      Und natürlich müssen auch die Führungskräfte in Unternehmen Verantwortung übernehmen - leider
-      gibt es auch heute noch Diskriminierung, Drohungen - bis hin zum späteren Arbeitsplatzverlust
-      (siehe u.a. <a href="https://www.spoe.at/elternkarenz-ergebnisse/"
-        >SPÖ-Umfrage zu Väterkarenz</a
-      >).
-    </p>
-
-    <h3>Die Entstehungsgeschichte</h3>
 
     <h4>Ganze Männer machen halbe-halbe?</h4>
     <p>

@@ -17,41 +17,6 @@
 ---
 
 <footer class="not-prose relative border-t border-gray-200 mt-12">
-  <!-- Warning/disclaimer box (pre-grid, matches Disclaimer.astro editorial-note style) -->
-  <div class="mx-auto w-full max-w-7xl px-4 pt-10 sm:px-6">
-    <aside
-      class="rounded-r-md border-l-4 border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-700"
-      role="note"
-    >
-      <div class="flex items-start gap-3">
-        <svg
-          class="mt-0.5 h-5 w-5 shrink-0 text-slate-500"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-            clip-rule="evenodd"></path>
-        </svg>
-        <p class="m-0 leading-relaxed">
-          Diese Seite ist ein privates Hobby-Projekt. Alle Angaben sind ohne Gewähr und
-          unverbindlich, es können Fehler enthalten sein. Diese Webseite stellt keine Rechtsberatung
-          dar! Für verbindliche Auskünfte wende dich an <a
-            href="/ak-beratung/"
-            class="font-medium text-slate-900 underline underline-offset-2 hover:text-slate-700"
-            >deine Arbeiterkammer</a
-          >, Gewerkschaft oder Sozialversicherung / <a
-            href="/oegk-beratung/"
-            class="font-medium text-slate-900 underline underline-offset-2 hover:text-slate-700"
-            >ÖGK-Beratung</a
-          >.
-        </p>
-      </div>
-    </aside>
-  </div>
-
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
     <div
       class="grid grid-cols-12 gap-4 gap-y-8 py-8 sm:gap-8 md:py-12"
@@ -60,21 +25,40 @@
       <!-- Brand + About column (col-span-4) -->
       <section class="col-span-12 lg:col-span-4" aria-labelledby="footer-about">
         <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href="/">Karenz Wizard</a>
+          <a class="inline-block font-bold text-xl mb-2" href="/">Karenz Wizard</a>
+          <p class="mb-5 space-y-2 text-sm leading-relaxed text-muted">
+            Hilfe zur Selbsthilfe für Väter, die nicht nur zwei Monate in Karenz gehen möchten. Mit
+            interaktivem Planer für das einkommensabhängige Kinderbetreuungsgeld, Schritt für
+            Schritt Anleitung, Infos zu #EqualCare / "Halbe Halbe" und mehr. Für mehr
+            Väterbeteiligung! 💪
+          </p>
+          <p class="mb-5 space-y-2 text-sm leading-relaxed text-muted">
+            Instagram:
+            <a
+              class="text-muted underline transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
+              href="https://www.instagram.com/karenz_wizard/"
+            >
+              @karenz_wizard</a
+            >
+          </p>
         </div>
 
-        <h2 id="footer-social-media" class="mt-4 mb-2 font-medium">Social Media</h2>
-        <ul class="mb-5 space-y-2 text-sm">
-          <li>
-            <a
-              class="text-muted transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
-              href="https://www.instagram.com/karenz_wizard/">Instagram</a
-            >
-          </li>
-        </ul>
+        <h2 class="mb-2 font-medium">Disclaimer: Keine Rechtsberatung!</h2>
+        <p class="text-xs leading-relaxed text-muted mb-2">
+          Diese Seite ist ein privates, nichtkommerzielles Hobby-Projekt. Alle Angaben sind ohne
+          Gewähr und unverbindlich, es können Fehler enthalten sein. Diese Webseite stellt keine
+          Rechtsberatung dar! Für verbindliche Auskünfte wende dich bitte unbedingt an <a
+            href="/ak-beratung/"
+            class="text-slate-900 underline underline-offset-2 hover:text-slate-700"
+            >deine Arbeiterkammer</a
+          >, <a
+            href="/oegk-beratung/"
+            class="text-slate-900 underline underline-offset-2 hover:text-slate-700">die ÖGK</a
+          > oder Gewerkschaft / Betriebsrat. <!-- Viel Erfolg bei deiner/eurer Planung! 🤗 -->
+        </p>
 
-        <h2 id="footer-about" class="mb-2 font-medium">Über das Projekt</h2>
-        <p class="text-sm leading-relaxed text-muted">
+        <h2 id="footer-about" class="mb-2 font-medium mt-4">Über das Projekt</h2>
+        <p class="text-xs leading-relaxed text-muted">
           Mit ❤️ für das Land der Berge entwickelt von <a
             class="underline"
             href="https://mandrasch.dev">Matthias Andrasch</a
@@ -84,29 +68,24 @@
           Dieses Webseite ist ein "proof of concept", um zu zeigen dass ein Online-Tool für die
           Karenzplanung einfach und schnell umsetzbar ist. Meiner Ansicht nach sollte es von einer
           Vertretung wie der AK oder einer NGO betrieben werden, um mehr Väterkarenz sowie
-          Gleichberechtigung zu ermöglichen. 💪
-        </p>
-
-        <h2 id="footer-open-source" class="mt-6 mb-2 font-medium">Open Source</h2>
-        <p class="text-sm leading-relaxed text-muted">Made with Astro / AstroWind and Svelte.</p>
-        <p class="text-sm text-muted">
-          <span>Lizenz:</span>
-          <span class="ml-1">MIT (Open Source)</span>
-        </p>
-        <p class="mt-2">
-          <a
-            href="https://github.com/mandrasch/karenz-wizard"
-            target="_blank"
-            rel="noreferrer noopener"
-            class="inline-flex items-center text-sm font-medium text-primary transition duration-150 ease-in-out hover:underline"
-          >
-            Auf GitHub ansehen
-          </a>
+          Gleichberechtigung zu ermöglichen. 💪 (<a href="/ueber/" class="underline"
+            >Mehr über das Projekt erfahren</a
+          >)
         </p>
       </section>
 
       <!-- Menü column (col-span-2/3) -->
-      <nav class="col-span-12 md:col-span-3 lg:col-span-2" aria-labelledby="footer-links">
+      <!-- <nav class="col-span-12 md:col-span-3 lg:col-span-2" aria-labelledby="footer-links">
+        <h2 id="footer-social-media" class="mt-4 mb-2 font-medium">Social Media</h2>
+        <ul class="mb-5 space-y-2 text-sm">
+          <li>
+            <a
+              class="text-muted transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
+              href="https://www.instagram.com/karenz_wizard/">Instagram: @karenz_wizard</a
+            >
+          </li>
+        </ul>
+
         <h2 id="footer-links" class="mb-2 font-medium">Menü</h2>
         <ul class="text-sm">
           <li class="mb-2">
@@ -188,10 +167,10 @@
             >
           </li>
         </ul>
-      </nav>
+      </nav> -->
 
       <!-- Diversity / Barrierefreiheit / Solidarität column (col-span-3) -->
-      <section class="col-span-12 md:col-span-3 lg:col-span-3" aria-labelledby="footer-legal">
+      <section class="col-span-12 md:col-span-3 lg:col-span-4" aria-labelledby="footer-legal">
         <h2 id="footer-legal" class="mb-2 font-medium">Diversity 🌈</h2>
         <p class="mb-4 text-xs leading-relaxed text-muted">
           Das Tool ist leider noch nicht bzgl. Regenbogenfamilien optimiert. Ich bitte dies zu
@@ -221,7 +200,20 @@
       </section>
 
       <!-- Kontakt + Disclaimer column (col-span-3) -->
-      <section class="col-span-12 md:col-span-3 lg:col-span-3" aria-labelledby="footer-contact">
+      <section class="col-span-12 md:col-span-3 lg:col-span-4" aria-labelledby="footer-contact">
+        <h2 id="footer-social-media" class="mb-2 font-medium">Social Media</h2>
+        <ul class="mb-5 space-y-2 text-sm">
+          <li class="text-muted">
+            Instagram:
+            <a
+              class="text-muted underline transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
+              href="https://www.instagram.com/karenz_wizard/"
+            >
+              @karenz_wizard</a
+            >
+          </li>
+        </ul>
+
         <h2 id="footer-contact" class="mb-2 font-medium">Kontakt & Feedback</h2>
         <ul class="mb-5 text-sm">
           <li class="mb-2">
@@ -240,11 +232,21 @@
           </li>
         </ul>
 
-        <h2 class="mb-2 font-medium">Disclaimer</h2>
-        <p class="text-xs leading-relaxed text-muted">
-          Privates, nichtkommerzielles Hobbyprojekt – keine Rechtsberatung, alle Angaben ohne
-          Gewähr! Bitte unbedingt bei
-          <a href="/ak-beratung/" class="underline">der AK kostenfrei beraten lassen</a>!
+        <h2 id="footer-open-source" class="mt-6 mb-2 font-medium">Open Source</h2>
+        <p class="text-sm leading-relaxed text-muted">Made with Astro / AstroWind and Svelte.</p>
+        <p class="text-sm text-muted">
+          <span>Lizenz:</span>
+          <span class="ml-1">MIT (Open Source)</span>
+        </p>
+        <p class="mt-2">
+          <a
+            href="https://github.com/mandrasch/karenz-wizard"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="inline-flex items-center text-sm font-medium text-primary transition duration-150 ease-in-out hover:underline"
+          >
+            Auf GitHub ansehen
+          </a>
         </p>
       </section>
     </div>

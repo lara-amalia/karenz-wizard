@@ -9,18 +9,18 @@ type SeoEntry = {
 };
 
 const defaultMeta: SeoMeta = {
-  title: 'Karenz Wizard – Eine Elternzeit-Planungshilfe für Österreich',
+  title: 'Karenz Wizard | Elternzeit-Planungshilfe für Österreich',
   description:
-    'Tools und Infos rund um Karenzplanung, Familienzeitbonus, Kinderbetreuungsgeld und Beratungsstellen in Österreich. Für mehr Gleichberechtigung und Väterkarenz!',
+    'Hilfe zur Selbsthilfe für Väter, die nicht nur zwei Monate in Karenz gehen möchten. Interaktiver Planer für das einkommensabhängige Kinderbetreuungsgeld, Schritt für Schritt Anleitung, Infos zu  Equal Care / "Halbe Halbe" und mehr. Für mehr Väterbeteiligung!',
 };
 
 const seoEntries: SeoEntry[] = [
   {
     match: '/',
     meta: {
-      title: 'Karenz Wizard – Eine Elternzeit-Planungshilfe für Österreich',
+      title: 'Karenz Wizard | Elternzeit-Planungshilfe für Österreich',
       description:
-        'Tools und Infos rund um Karenzplanung, Familienzeitbonus, Kinderbetreuungsgeld und Beratungsstellen in Österreich. Für mehr Gleichberechtigung und Väterkarenz!',
+        'Hilfe zur Selbsthilfe für Väter, die nicht nur 2 Monate in Karenz gehen möchten. Interaktiver Planer für das einkommensabhängige Kinderbetreuungsgeld, Schritt für Schritt Anleitung, Equal Care / "Halbe Halbe" und mehr. Für mehr Väterbeteiligung!',
     },
   },
   {
