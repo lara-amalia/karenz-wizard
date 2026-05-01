@@ -956,7 +956,7 @@
 			</div>
 		</aside>
     	<p class="subline">
-      Starte hier mit den minimal erforderlichen zwei Monaten Väterkarenz und schau dir Möglichkeiten an, wie du länger in Karenz gehen kannst. Entweder indem die Mutter weniger Monate Karenz nimmt - oder indem du als Vater noch in "unbezahlte Karenz" gehst. Eltern-Teilzeit im Anschluss könnte ebenso eine Option sein (falls du Anspruch hierauf hast²).
+      Starte hier mit den minimalen zwei Monaten Väterkarenz und schau dir Möglichkeiten an, wie du länger in Karenz gehen kannst. Entweder indem die Mutter weniger Monate nimmt im ersten Teil - oder indem du als Vater noch in "unbezahlte Karenz" gehst. Eltern-Teilzeit könnte ebenso eine Option sein (falls du Anspruch hast²).
 		</p>
 	</div>
 
