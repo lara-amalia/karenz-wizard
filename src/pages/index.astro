@@ -114,12 +114,19 @@ const latestPosts = (await getCollection('blog'))
               </button>
             </div>
 
-            <div class="mt-8 flex justify-center lg:justify-start">
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
               <a
                 href="/schritte-im-ueberblick/"
                 class="inline-flex items-center justify-center gap-2 rounded-full bg-[#C94D54] px-7 py-4 text-base font-semibold text-white transition hover:bg-[#b64048] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]"
               >
                 Die Schritte im Überblick
+                <span aria-hidden="true">→</span>
+              </a>
+              <a
+                href="/eakbg-planer/"
+                class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 bg-white px-7 py-4 text-base font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
+              >
+                Direk zum eaKBG-Planer
                 <span aria-hidden="true">→</span>
               </a>
             </div>

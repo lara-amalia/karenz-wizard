@@ -20,47 +20,54 @@ type Props = {
   width?: 'default' | 'full';
   align?: 'left' | 'center';
   prose?: boolean;
+  // TODO: remove total, is defined in StepBreadcrumb - centralize it!
+  // step needs to be string, because we have cases like '3.1'
   step?: { number: string; total?: number };
   showDisclaimer?: boolean;
 };
 
-const { title, subtitle, width = 'default', align = 'left', prose = true, step, showDisclaimer = true } = Astro.props;
+const {
+  title,
+  subtitle,
+  width = 'default',
+  align = 'left',
+  prose = true,
+  step,
+  showDisclaimer = true,
+} = Astro.props;
 
-const headerClasses = ['mt-10', 'space-y-4', align === 'center' ? 'text-center' : ''].filter(Boolean).join(' ');
-const containerClasses = [
-  'mx-auto',
-  'mt-6',
-  'max-w-3xl',
-  prose ? 'prose' : '',
-].filter(Boolean).join(' ');
+const headerClasses = ['mt-10', 'space-y-4', align === 'center' ? 'text-center' : '']
+  .filter(Boolean)
+  .join(' ');
+const containerClasses = ['mx-auto', 'mt-6', 'max-w-3xl', prose ? 'prose' : '']
+  .filter(Boolean)
+  .join(' ');
 ---
 
 <section class="content">
-  {width === 'full' ? (
-    <>
-      <header class={headerClasses}>
-        {step && <StepBreadcrumb number={step.number} total={step.total} />}
-        <h1 class="text-3xl font-semibold text-slate-900">
-          {title}
-        </h1>
-        {subtitle && <p class="text-base leading-relaxed text-slate-600">{subtitle}</p>}
-        <slot name="subtitle" />
-      </header>
-      {showDisclaimer && <Disclaimer />}
-      <slot />
-    </>
-  ) : (
-    <div class={containerClasses}>
-      <header class={headerClasses}>
-        {step && <StepBreadcrumb number={step.number} total={step.total} />}
-        <h1 class="text-3xl font-semibold text-slate-900">
-          {title}
-        </h1>
-        {subtitle && <p class="text-base leading-relaxed text-slate-600">{subtitle}</p>}
-        <slot name="subtitle" />
-      </header>
-      {showDisclaimer && <Disclaimer />}
-      <slot />
-    </div>
-  )}
+  {
+    width === 'full' ? (
+      <>
+        <header class={headerClasses}>
+          {step && <StepBreadcrumb number={step.number} total={step.total} />}
+          <h1 class="text-3xl font-semibold text-slate-900">{title}</h1>
+          {subtitle && <p class="text-base leading-relaxed text-slate-600">{subtitle}</p>}
+          <slot name="subtitle" />
+        </header>
+        {showDisclaimer && <Disclaimer />}
+        <slot />
+      </>
+    ) : (
+      <div class={containerClasses}>
+        <header class={headerClasses}>
+          {step && <StepBreadcrumb number={step.number} total={step.total} />}
+          <h1 class="text-3xl font-semibold text-slate-900">{title}</h1>
+          {subtitle && <p class="text-base leading-relaxed text-slate-600">{subtitle}</p>}
+          <slot name="subtitle" />
+        </header>
+        {showDisclaimer && <Disclaimer />}
+        <slot />
+      </div>
+    )
+  }
 </section>

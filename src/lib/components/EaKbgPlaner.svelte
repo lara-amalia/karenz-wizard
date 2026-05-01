@@ -561,7 +561,7 @@
 
 			if (hasParentalPartTime) {
 				result.push({
-					label: 'ab jetzt ggf. Anspruch auf Eltern-Teilzeit (beide)',
+					label: 'ab jetzt ggf. Anspruch auf Eltern-Teilzeit (beide)²',
 					start: lastKarenzEnd,
 					end: parentalPartTimeEnd,
 					rowGroup: 'c',
@@ -918,19 +918,16 @@
 </script>
 
 <section class="content planner-page min-w-0">
-	<div class="page-header mt-10 min-w-0">
+	<div class="page-header mt-4 min-w-0">
 		<h1 id="planner-title" class="text-3xl font-semibold text-slate-900">
 			eaKBG Planer für Paare
-		</h1>
-		<p class="subline">
-			Eine kleine Planungshilfe für das einkommensabhängige Kinderbetreuungsgeld (eaKBG) und die
-			Aufteilung der Karenz.
-		</p>
+		</h1> 
+	
 		<aside
-			class="not-prose rounded-r-md border-l-4 border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-700"
+			class="not-prose rounded-r-md border-l-4 border-slate-300 bg-slate-50 px-4 py-2 text-sm text-slate-700"
 			role="note"
 		>
-			<div class="flex items-start gap-3">
+			<div class="flex items-center gap-3">
 				<svg
 					class="mt-0.5 h-5 w-5 shrink-0 text-slate-500"
 					viewBox="0 0 20 20"
@@ -954,15 +951,18 @@
 					<a
 						class="font-medium text-slate-900 underline underline-offset-2 hover:text-slate-700"
 						href="/oegk-beratung/">ÖGK</a
-					> beraten.
+					> beraten!
 				</p>
 			</div>
 		</aside>
+    	<p class="subline">
+      Starte hier mit den minimal erforderlichen zwei Monaten Väterkarenz und schau dir Möglichkeiten an, wie du länger in Karenz gehen kannst. Entweder indem die Mutter weniger Monate Karenz nimmt - oder indem du als Vater noch in "unbezahlte Karenz" gehst. Eltern-Teilzeit im Anschluss könnte ebenso eine Option sein (falls du Anspruch hierauf hast²).
+		</p>
 	</div>
 
 	<section>
 		<div class="example-presets mb-2 min-w-0">
-			<span>Beispiele:</span>
+			<span>Beispiele:</span> 
 
 			<button type="button" onclick={() => applyExample(12, 2)} class="example-link">12 + 2</button
 			>
@@ -973,7 +973,7 @@
 			<button type="button" onclick={() => applyExample(8, 6)} class="example-link">8 + 6</button>
 			|
 			<button type="button" onclick={() => applyExample(7, 7)} class="example-link"
-				>7 + 7* (Hinweise beachten)</button
+				>7 + 7 ¹(Hinweise beachten)</button
 			>
 			|
 			<button type="button" onclick={() => applyExample(12, 12)} class="example-link"
@@ -1091,9 +1091,9 @@
 
 				{#if fatherEaBlocked}
 					<div class="warning-banner" role="alert">
-						⚠️ Die Mutter nutzt den gesamten Anspruch auf einkommensabhängiges Kinderbetreuungsgeld.
+						ℹ️ Die Mutter nutzt den gesamten Anspruch auf einkommensabhängiges Kinderbetreuungsgeld.
 						Der Vater kann daher keinen eaKBG-Bezug mehr geltend machen, weil er mindestens 2 Monate
-						im Zeitraum der 14 Monate ab Geburt nehmen muss (12+2 Modell).
+						im Zeitraum der 14 Monate ab Geburt nehmen muss (12+2 Modell). Er ist somit direkt in der unbezahlten Karenz.
 					</div>
 
 					<!-- TODO: Add warning, when ein Teil unbezahlte Karenz ist und eaKBG überschritten-->
@@ -1418,14 +1418,28 @@
 			</div>
 		</div>
 		<p class="planner-note text-sm">
-			❓ Unsicher, ob du oder dein Partner/deine Partnerin überhaupt Anspruch auf
-			einkommensabhängiges Kinderbetreuungsgeld hat? Achtung bei AMS-Zeiten o.ä. vor
+			❓ <strong>Unsicher, ob du oder dein Partner/deine Partnerin überhaupt Anspruch auf
+			einkommensabhängiges Kinderbetreuungsgeld hat?</strong> Achtung bei AMS-Zeiten o.ä. vor
 			Geburt/Mutterschutz (182-Tage-Regel). Wenn nur eine Person Anspruch hat, kann das andere
 			Elternteil <a href="/faq#sonderleistung-1">Sonderleistung I</a>
 			beziehen. Habt ihr beide jedoch keinen Anspruch, bleibt nur das
 			<a href="/pauschales-kbg/" class="planner-link">KBG-Konto</a>. Also Schritt. 1:
 			<a href="/eakbg-anspruch" class="planner-link">eaKBG Anspruch prüfen</a>!
 		</p>
+    <p class="planner-note text-sm">
+      <strong>¹ Warum ist die 7+7 Aufteilung - welche ja "Halbe Halbe" wäre - hier nicht im Planer voreingestellt als Standard?</strong
+			> 
+				Gerade beim ersten Kind kann ein Wiedereinstieg in den Job nach sieben Monaten für manche
+				Mütter bzw. Paare als herausfordernd empfunden werden – etwa in Bezug auf Stillen und
+				Abpumpen (falls Stillen möglich und gewünscht ist), die Beikost-Einführung, etc. Für andere
+				Familien kann dieses Modell aber ggf. gut funktionieren, jedes Kind ist individuell in seiner Entwicklung. Dies muss jedes Paar selber entscheiden.
+    </p>
+      <p class="planner-note text-sm">
+      <strong>² Eltern-Teilzeit - nicht jede:r hat Anspruch</strong
+			> 
+				Eltern-Teilzeit ist eine tolle Option, auch nach der Karenz mehr Gleichberechtigung zu ermöglichen. Sogar mit Kündigungsschutz. Dies geht beispieslweise auch im 20h/20h-Modell, man wechselt sich zu Mittag ab mit der Kinderbetreuung. Doch nicht jede:r hat Anspruch in seinem Betrieb. Mehr Informationen hier: <a href="/elternteilzeit-20-20/" class="underline">Eltern-Teilzeit</a>.
+    </p>
+    
 
 		<NoteGrid />
 		<TimelineSummary {segmentSummaries} bind:birthDateInput {formatSegmentRange} open={false} />
@@ -1470,7 +1484,7 @@
 				14 Monaten eaKBG-Förderung eine <strong>7+7-Monate-Aufteilung</strong>.
 			</p>
 
-			<strong>Warum ist die 7+7 Aufteilung hier nicht im Planer voreingestellt als Standard?</strong
+			<strong>* Warum ist die 7+7 Aufteilung hier nicht im Planer voreingestellt als Standard?</strong
 			>
 			<p>
 				Gerade beim ersten Kind kann ein Wiedereinstieg in den Job nach sieben Monaten für manche
@@ -1868,7 +1882,7 @@
 	}
 
 	.example-presets {
-		@apply flex w-full items-center gap-2 text-xs text-slate-600;
+		@apply flex w-full flex-wrap  items-center gap-2 text-sm text-slate-600;
 	}
 
 	.example-presets span {

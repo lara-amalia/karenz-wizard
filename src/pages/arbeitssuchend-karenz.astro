@@ -5,22 +5,26 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
 ---
 
 <Layout>
-  <ContentPage title='Arbeitssuchend & "Karenz"?' step={{ number: '3.3' }}>
-      <p>🚧 Inhalt in Arbeit 🚧</p>
-      <p>Du bist gerade arbeitssuchend/arbeitslos?</p>
-      <p>
-        Falls dein/e Partner/in Anspruch auf einkommens&shy;abhängiges Kinder&shy;betreuungs&shy;geld
-        hat, dann kannst du den Basissatz <a href="/sonderleistung-1/">Sonderleistung 1</a>
-        beziehen. Damit bekommt man zumindest ca. 1.100 € / Monat.
-      </p>
-      <p>
-        <strong>Wichtig:</strong> Während du Sonderleistung 1 bekommst, musst du dich vom AMS
-        Arbeitslosengeld abmelden. Ein gleichzeitiger Bezug ist nicht möglich.
-      </p>
-      <p>
-        Auch eine gute Nachricht bzgl. Arbeitslosengeld: Mit Kind hast du Anspruch auf
-        Familienzuschlag.
-      </p>
+  <ContentPage title='Arbeitssuchend & "Karenz"?' step={{ number: '3.3', total: 9 }}>
+    <p>🚧 Inhalt in Arbeit 🚧</p>
+    <p>Du bist gerade arbeitssuchend/arbeitslos?</p>
+    <p>
+      Falls dein/e Partner/in Anspruch auf einkommens&shy;abhängiges Kinder&shy;betreuungs&shy;geld
+      hat, dann kannst du den Basissatz <a href="/sonderleistung-1/">Sonderleistung 1</a>
+      beziehen. Damit bekommt man zumindest ca. 1.100 € / Monat.
+    </p>
+    <p>
+      <strong>Wichtig:</strong> Während du Sonderleistung 1 bekommst, musst du dich vom AMS Arbeitslosengeld
+      abmelden. Ein gleichzeitiger Bezug ist nicht möglich.
+    </p>
+    <p>
+      Auch eine gute Nachricht bzgl. Arbeitslosengeld: Mit Kind hast du Anspruch auf
+      Familienzuschlag.
+    </p>
   </ContentPage>
-  <NextStep number="4" label="Planung kostenfrei überprüfen vor Antrag" href="/planung-ueberpruefen/" />
+  <NextStep
+    number="4"
+    label="Planung kostenfrei überprüfen vor Antrag"
+    href="/planung-ueberpruefen/"
+  />
 </Layout>
