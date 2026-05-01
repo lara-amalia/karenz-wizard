@@ -16,63 +16,46 @@
 // Diversity/Barrierefreiheit/Solidarität section, top disclaimer card.
 ---
 
-<footer class="not-prose relative border-t border-gray-200 mt-12">
+<footer class="not-prose relative border-t border-gray-200 bg-gray-50 mt-12">
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
-    <div
-      class="grid grid-cols-12 gap-4 gap-y-8 py-8 sm:gap-8 md:py-12"
-      aria-label="Footer Navigation"
-    >
+    <div class="grid grid-cols-12 gap-4 gap-y-8 py-8 sm:gap-8 md:py-12">
+      <!-- Full-width brand title -->
+      <div class="col-span-12 border-b border-gray-200 pb-6">
+        <a class="inline-block font-bold text-xl" href="/">Karenz Wizard</a>
+        <!-- TODO: add instagram icon -->
+        <!--<svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-instagram"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+          ></path>
+        </svg> -->
+      </div>
+
       <!-- Brand + About column (col-span-4) -->
-      <section class="col-span-12 lg:col-span-4" aria-labelledby="footer-about">
+      <div class="col-span-12 lg:col-span-4">
+        <h2 class="mb-2 font-medium">Über das Projekt</h2>
         <div class="mb-2">
-          <a class="inline-block font-bold text-xl mb-2" href="/">Karenz Wizard</a>
           <p class="mb-5 space-y-2 text-sm leading-relaxed text-muted">
             Hilfe zur Selbsthilfe für Väter, die nicht nur zwei Monate in Karenz gehen möchten. Mit
             interaktivem Planer für das einkommensabhängige Kinderbetreuungsgeld, Schritt für
             Schritt Anleitung, Infos zu #EqualCare / "Halbe Halbe" und mehr. Für mehr
             Väterbeteiligung! 💪
           </p>
-          <p class="mb-5 space-y-2 text-sm leading-relaxed text-muted">
-            Instagram:
-            <a
-              class="text-muted underline transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
-              href="https://www.instagram.com/karenz_wizard/"
-            >
-              @karenz_wizard</a
-            >
+          <p class="mt-2 text-xs leading-relaxed text-muted">
+            Dieses Webseite ist ein "proof of concept", um zu zeigen dass ein Online-Tool für die
+            Karenzplanung einfach und schnell umsetzbar ist. Meiner Ansicht nach sollte es von einer
+            Vertretung wie der AK oder einer NGO betrieben werden, um mehr Väterkarenz sowie
+            Gleichberechtigung zu ermöglichen.
+            <a href="/ueber/" class="underline">&raquo; Mehr über das Projekt erfahren</a>
           </p>
         </div>
-
-        <h2 class="mb-2 font-medium">Disclaimer: Keine Rechtsberatung!</h2>
-        <p class="text-xs leading-relaxed text-muted mb-2">
-          Diese Seite ist ein privates, nichtkommerzielles Hobby-Projekt. Alle Angaben sind ohne
-          Gewähr und unverbindlich, es können Fehler enthalten sein. Diese Webseite stellt keine
-          Rechtsberatung dar! Für verbindliche Auskünfte wende dich bitte unbedingt an <a
-            href="/ak-beratung/"
-            class="text-slate-900 underline underline-offset-2 hover:text-slate-700"
-            >deine Arbeiterkammer</a
-          >, <a
-            href="/oegk-beratung/"
-            class="text-slate-900 underline underline-offset-2 hover:text-slate-700">die ÖGK</a
-          > oder Gewerkschaft / Betriebsrat. <!-- Viel Erfolg bei deiner/eurer Planung! 🤗 -->
-        </p>
-
-        <h2 id="footer-about" class="mb-2 font-medium mt-4">Über das Projekt</h2>
-        <p class="text-xs leading-relaxed text-muted">
-          Mit ❤️ für das Land der Berge entwickelt von <a
-            class="underline"
-            href="https://mandrasch.dev">Matthias Andrasch</a
-          >.
-        </p>
-        <p class="mt-2 text-xs leading-relaxed text-muted">
-          Dieses Webseite ist ein "proof of concept", um zu zeigen dass ein Online-Tool für die
-          Karenzplanung einfach und schnell umsetzbar ist. Meiner Ansicht nach sollte es von einer
-          Vertretung wie der AK oder einer NGO betrieben werden, um mehr Väterkarenz sowie
-          Gleichberechtigung zu ermöglichen. 💪 (<a href="/ueber/" class="underline"
-            >Mehr über das Projekt erfahren</a
-          >)
-        </p>
-      </section>
+      </div>
 
       <!-- Menü column (col-span-2/3) -->
       <!-- <nav class="col-span-12 md:col-span-3 lg:col-span-2" aria-labelledby="footer-links">
@@ -170,19 +153,31 @@
       </nav> -->
 
       <!-- Diversity / Barrierefreiheit / Solidarität column (col-span-3) -->
-      <section class="col-span-12 md:col-span-3 lg:col-span-4" aria-labelledby="footer-legal">
-        <h2 id="footer-legal" class="mb-2 font-medium">Diversity 🌈</h2>
-        <p class="mb-4 text-xs leading-relaxed text-muted">
-          Das Tool ist leider noch nicht bzgl. Regenbogenfamilien optimiert. Ich bitte dies zu
-          entschuldigen! (Falls jemand hierzu unterstützen kann, ob rechtlich alles gleichgestellt
-          ist - gerne melden!)
+      <div class="col-span-12 md:col-span-6 lg:col-span-4">
+        <h2 class="mb-2 font-medium">Disclaimer: Keine Rechtsberatung!</h2>
+        <p class="text-xs leading-relaxed text-muted mb-2">
+          Diese Seite ist ein privates, nichtkommerzielles Hobby-Projekt. Alle Angaben sind ohne
+          Gewähr und unverbindlich, es können Fehler enthalten sein. Diese Webseite stellt keine
+          Rechtsberatung dar! Für verbindliche Auskünfte wende dich bitte unbedingt an <a
+            href="/ak-beratung/"
+            class="text-slate-900 underline underline-offset-2 hover:text-slate-700"
+            >deine Arbeiterkammer</a
+          >, <a
+            href="/oegk-beratung/"
+            class="text-slate-900 underline underline-offset-2 hover:text-slate-700">die ÖGK</a
+          > oder Gewerkschaft / Betriebsrat. <!-- Viel Erfolg bei deiner/eurer Planung! 🤗 -->
         </p>
 
-        <h2 class="mb-2 font-medium">Barrierefreiheit</h2>
+        <h2 class="mb-2 mt-4 font-medium">Barrierefreiheit & Diversity 🌈</h2>
         <p class="mb-4 text-xs leading-relaxed text-muted">
           Das Tool ist leider noch nicht bzgl. Barrierefreiheit optimiert, es handelt sich um einen
           schnellen Prototyp in meiner Freizeit. Die Barrierefreiheit gemäß WCAG 2.2 AA wird in
           Zukunft gewährleistet.
+        </p>
+        <p class="mb-4 text-xs leading-relaxed text-muted">
+          Das Tool ist leider noch nicht bzgl. Regenbogenfamilien optimiert. Ich bitte dies zu
+          entschuldigen! (Falls jemand hierzu unterstützen kann, ob rechtlich alles gleichgestellt
+          ist - gerne melden!)
         </p>
 
         <h2 class="mb-2 font-medium">Solidarität für unerfüllte Kinderwünsche ❤️‍🩹</h2>
@@ -190,23 +185,21 @@
           „Einfach mal so Kinder kriegen" ist keineswegs für alle Paare möglich. Unterstützung
           findet sich unter anderem beim <a href="https://uik-verein.de/" class="underline"
             >Verein UIK</a
-          >.
-          <br /><br />Ein großer Dank an die mutigen Pionier:innen der IVF-Befruchtung (siehe u.a.
-          Film
+          >. Ein großer Dank an die mutigen Pionier:innen der IVF-Befruchtung (siehe u.a. Film
           <a class="underline" href="https://de.wikipedia.org/wiki/Joy_(2024)">Joy</a>) und den
           ersten Frauen, die sich für die Forschung - und gegen alle Widerstände - zur Verfügung
           gestellt haben. <br /><br />In stillen Gedenken an alle Sternenkinder.
         </p>
-      </section>
+      </div>
 
       <!-- Kontakt + Disclaimer column (col-span-3) -->
-      <section class="col-span-12 md:col-span-3 lg:col-span-4" aria-labelledby="footer-contact">
-        <h2 id="footer-social-media" class="mb-2 font-medium">Social Media</h2>
+      <div class="col-span-12 md:col-span-6 lg:col-span-4">
+        <h2 class="mb-2 font-medium">Social Media</h2>
         <ul class="mb-5 space-y-2 text-sm">
           <li class="text-muted">
             Instagram:
             <a
-              class="text-muted underline transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
+              class="text-primary underline transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
               href="https://www.instagram.com/karenz_wizard/"
             >
               @karenz_wizard</a
@@ -214,7 +207,7 @@
           </li>
         </ul>
 
-        <h2 id="footer-contact" class="mb-2 font-medium">Kontakt & Feedback</h2>
+        <h2 class="mb-2 font-medium">Kontakt & Feedback</h2>
         <ul class="mb-5 text-sm">
           <li class="mb-2">
             <a
@@ -232,7 +225,7 @@
           </li>
         </ul>
 
-        <h2 id="footer-open-source" class="mt-6 mb-2 font-medium">Open Source</h2>
+        <h2 class="mt-6 mb-2 font-medium">Open Source</h2>
         <p class="text-sm leading-relaxed text-muted">Made with Astro / AstroWind and Svelte.</p>
         <p class="text-sm text-muted">
           <span>Lizenz:</span>
@@ -248,7 +241,24 @@
             Auf GitHub ansehen
           </a>
         </p>
-      </section>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div
+      class="border-t border-gray-200 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted"
+    >
+      <p>
+        Mit ❤️ für das Land der Berge entwickelt von <a
+          class="underline"
+          href="https://mandrasch.dev">Matthias Andrasch</a
+        >.
+      </p>
+      <a
+        href="/impressum-datenschutz/"
+        class="transition duration-150 ease-in-out hover:text-gray-700 hover:underline"
+        >Impressum & Datenschutz</a
+      >
     </div>
   </div>
 </footer>
