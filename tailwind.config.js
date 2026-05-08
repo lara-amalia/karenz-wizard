@@ -18,6 +18,21 @@ export default {
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            blockquote: {
+              fontStyle: 'normal',
+            },
+            'blockquote p:first-of-type::before': {
+              content: '"\\201E"',
+            },
+            'blockquote p:last-of-type::after': {
+              content: '"\\201D"',
+            },
+          },
+        },
+      },
 
       animation: {
         fade: 'fadeInUp 1s both',
