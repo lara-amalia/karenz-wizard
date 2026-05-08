@@ -37,8 +37,9 @@ const steps: Step[] = [
     kicker: 'Schritt 1: Papamonat & FZB',
     title: 'Der erste (Papa-)Monat nach Geburt steht dir immer zu',
     description: [
-      'Die gute Nachricht: Du hast in Österreich - großartigerweise! -  das Recht auf Freistellung im ersten Monat nach der Geburt. So kannst du den ersten Monat daheim verbringen und im Wochenbett voll unterstützen.',
-      'Die "schlechte" Nachricht: Anspruch auf die staatliche Förderung für den Papamonat, den Familienzeitbonus, hast du allerdings nicht automatisch — das ist an die 182-Tage-Regel geknüpft. Dein Arbeitgeber muss dich unbezahlt freistellen - den Monat finanzieren musst du allerdings selber, falls du keinen Anspruch auf Familienzeitbonus hast.',
+      'Die gute Nachricht: Du hast in Österreich das Recht auf Freistellung im ersten Monat nach der Geburt. So kannst du den ersten Monat daheim miterleben und im Wochenbett voll unterstützen.',
+      'Die "schlechte" Nachricht: Anspruch auf die staatliche Förderung für den Papamonat, den Familienzeitbonus, hast du allerdings nicht automatisch. Die Förderung ist an die 182-Tage-Regel geknüpft (= ca. 6 Monat durchgehende Arbeit vor Geburt / kein AMS-Bezug o.ä. in dieser Zeit).',
+      'Wichtig: Das Recht auf Freistellung bei deinem Arbeitgeber hast du immer - den Monat musst du halt selber finanzieren, falls du keinen Anspruch auf staatliche Förderung (Familienzeitbonus) hast.',
       'Tipp: Die Papamonat-Freistellung gilt erst ab Entlassung von Mutter und Kind aus dem Krankenhaus, heb dir also ein paar Urlaubstage für die Krankenhauszeit auf.',
     ],
     cta: { label: 'Familienzeitbonus-Anspruch prüfen', href: '/fzb-anspruch/' },
@@ -52,12 +53,18 @@ const steps: Step[] = [
   {
     number: '2',
     kicker: 'Schritt 2: Die finanzielle Basis',
-    title: 'Welchen Kinderbetreuungs&shy;geld Anspruch habt ihr?',
+    title: 'Hat mindestens ein Elternteil Anspruch auf einkommens&shy;abhängiges KBG?',
     description: [
-      'Bevor ihr in die Detailplanung geht, müsst ihr euren Anspruch klären. In Österreich gibt es zwei Fördermodelle: Zum einen das einkommens&shy;abhängige Kinderbetreuungsgeld (eaKBG) - aber nur wenn man vorher ca. 6 Monate (182 Tage) durchgehend gearbeitet hat. Und zum anderen gibt es das pauschale Kinderbetreuungsgeld-Konto, welches allen offen steht. Als Paar könnt ihr nur eins der Modelle nutzen, ein Mix ist nicht möglich.',
+      'Bevor ihr in die Detailplanung geht, müsst ihr klären ob mindestens ein Elternteil eaKBG-Anspruch hat.',
+      'In Österreich gibt es zwei Fördermodelle:',
+      'Zum einen das einkommens&shy;abhängige Kinderbetreuungs&shy;geld (eaKBG) - aber nur wenn man vorher 182 Tage (ca. 6 Monate) durchgehend gearbeitet hat. Es beträgt ca. 80% des letzten Gehalts, maximal 14 Monate lang ab Geburt (wenn der Vater mindestens 2 Monate in Karenz geht).',
+      'Und zum anderen gibt es das pauschale Kinderbetreuungsgeld-Konto, offen für alle.',
+      'Als Paar könnt ihr nur eins der Modelle nutzen.',
       'Grobe Faustregel: Wenn ihr eaKBG-Anspruch habt, dann bekommt ihr in den meisten Fällen mehr Geld bei diesem Fördermodell raus - im Gegensatz zum pauschalen KBG-Konto. Am Ende kommt es aber auf eure individuelle Situation (und euer Gehalt) an, was sich mehr lohnt. Lasst euch hier unbedingt kostenfrei bei AK oder ÖGK beraten!',
       'Die wichtigste Frage ist also zuerst: Hat mindestens einer von euch Anspruch auf das einkommens&shy;abhängige Kinderbetreuungsgeld (eaKBG)?',
-      'Hierfür muss die 182-Tage-Regel geprüft werden, d.h. ob ca. 6 Monate durchgehende gearbeitet wurde. Hat nur einer von euch Anspruch, bekommt der andere in seiner Karenzzeit den Basissatz Sonderleistung 1. Falls gar keiner von euch Anspruch hat, bleibt nur das pauschale Kinderbetreuungs&shy;geld.',
+      'Hierfür muss die 182-Tage-Regel geprüft werden, d.h. ob ca. 6 Monate durchgehend gearbeitet wurde, kein Arbeitslosengeld bezogen wurde, etc.',
+      "Hat nur ein Elternteil Anspruch, bekommt der andere in seiner Karenzzeit den Basissatz Sonder&shy;leistung 1. Dieser beträgt aktuell ca. 1'200€ / Monat.",
+      'Falls gar keiner von euch Anspruch hat, bleibt nur das pauschale Kinderbetreuungs&shy;geld-Konto.',
       'Hier erfahren, wie man den eaKBG-Anspruch prüft und welcher Stichtag für die 182-Tage-Regel gilt:',
     ],
     cta: { label: 'eaKBG-Anspruch jetzt prüfen', href: '/eakbg-anspruch/' },
@@ -73,9 +80,11 @@ const steps: Step[] = [
     kicker: 'Schritt 3: Die Zeit und Aufteilung',
     title: 'Wie lange wollt ihr zu Hause bleiben? Wie wollt ihr die Karenzmonate aufteilen?',
     description: [
-      'Geld / staatliche Förderung und Recht sind zwei verschiedene Paar Schuhe. In Österreich habt ihr gegenüber eurem Arbeitgeber Anspruch auf zwei Jahre Karenz-Freistellung. Aber das gute einkommens&shy;abhängiges Kinderbetreuungsgeld, welches ca. 80% vom Einkommen beträgt, wird nur maximal 14 Monate lang vom Staat an euch ausgezahlt. Die 14 Monate gelten ab Geburt. Bedingung für die vollen 14 Monate ist, dass der Vater mindestens 2 Monate Karenz nimmt.',
-      'Wie ihr die 14 Monate aufteilt, könnt ihr relativ flexibel selber entscheiden. Ihr könnt auch einen Monat gemeinsam eaKBG beziehen und in dieser Zeit gemeinsam daheim sein. Einige Vorgaben gibt es natürlich dennoch zu beachten (siehe AK-Video).',
-      'Welche Optionen es nach den 14 Monaten gibt, seht ihr in den Schritten weiter unten.',
+      'Geld / staatliche Förderung und Recht sind zwei verschiedene Paar Schuhe. In Österreich habt ihr gegenüber eurem Arbeitgeber Anspruch auf zwei Jahre Karenz-Freistellung. Aber das gute einkommens&shy;abhängiges Kinderbetreuungs&shy;geld (eaKBG), welches ca. 80% vom Einkommen beträgt, wird nur maximal 14 Monate lang vom Staat an euch ausgezahlt. Die 14 Monate gelten ab Geburt. Bedingung für die vollen 14 Monate ist, dass der Vater mindestens 2 Monate Karenz nimmt.',
+      'Wie ihr die 14 Monate aufteilt, könnt ihr relativ flexibel selber entscheiden.',
+      'Ihr könnt auch einen Monat gemeinsam eaKBG beziehen und in dieser Zeit gemeinsam daheim sein (oder reisen). Einige Vorgaben gibt es natürlich dennoch zu beachten (siehe AK-Video).',
+      'Natürlich stellt sich hier schnell eine schwierige Frage: Möchte die Mutter beispielsweise 12 Monate in Karenz gehen, dann wird es für den Vater knapp. Staatliche Förderung gibt es nur mehr für 2 Monate. Die gute Nachricht: Das Recht auf Karenz-Frei&shy;stellung beim Arbeitgeber hast du bis zum 2. Geburtstag des Kindes. Du kannst also deutlich länger in Karenz gehen! (falls finanziell leistbar)',
+      'Welche Optionen es nach den 14 Monaten gibt, seht ihr in den Schritten weiter unten. Beispielsweise das Verlängern der Väterkarenz mit einer "unbezahlten Karenz" - oder das Nutzen der Eltern-Teilzeit im 20h/20h-Modell. Bei diesem wechselt ihr euch beispielsweise mittags ab: Die Mutter arbeitet von 8 bis 12 Uhr, der Vater von 13 bis 17 Uhr. Bei beiden Alternativen müsst ihr natürlich mit einem Gehalt auskommen bzw. über Ersparnisse verfügen.',
       'Nutzt den interaktiven eaKBG-Planer, um verschiedene Aufteilungsmodelle auszuprobieren:',
     ],
     cta: { label: 'Eure eaKBG-Karenz interaktiv planen', href: '/eakbg-planer/' },
@@ -92,6 +101,7 @@ const steps: Step[] = [
     title: 'Unbezahlte Karenz: Länger daheim bleiben',
     description: [
       'Eine unbezahlte Karenz ist ebenso möglich um die Karenz zu verlängern, bis zum 2. Lebensjahr des Kindes habt ihr ja rechtlichen Anspruch auf Karenz (= unbezahlte Freistellung). Den Lebensunterhalt müsst ihr dann natürlich aus Ersparnissen oder über das Einkommen des/der Partner/in finanzieren in diesen Monaten.',
+      'Krankenversichern könnt ihr euch über die ÖGK Mitversicherung bei eurer Partnerin',
     ],
     cta: { label: 'Alles zur unbezahlten Karenz', href: '/unbezahlte-karenz/' },
     variant: 'sub',
@@ -104,7 +114,8 @@ const steps: Step[] = [
       'Gleichberechtigte Partnerschaft und Equal Care kann man auch so gestalten, dass beide Elternteile nach den 14 Monaten eaKBG wieder in den Job einsteigen — aber einer oder beide mit reduzierter Stundenanzahl. Im 20h/20h-Modell wechselt ihr euch beispielsweise mittags ab: Die Mutter arbeitet von 8 bis 12 Uhr, der Vater von 13 bis 17 Uhr.',
       'Dieses Modell wird leider in Medienberichten rund um die Aufteilung der Karenz oft nicht beleuchtet - doch gerade hiermit können Väter ebenso echte Verantwortung tragen.',
       'Gut zu wissen: Falls ihr Anspruch auf Eltern-Teilzeit habt, seid ihr auch einige Jahre sehr gut vor Kündigungen geschützt.',
-      'Die "schlechte" Nachricht: Das Recht auf Eltern-Teilzeit ist an bestimmte Vorraussetzungen geknüpft. Ihr könnt jedoch natürlich auch mit eurem Arbeitgeber eine freiwillige Teilzeit vereinbaren (ohne Kündigungsschutz).',
+      'Die "schlechte" Nachricht: Das Recht auf Eltern-Teilzeit ist an bestimmte Vorraussetzungen geknüpft.',
+      'Ihr könnt jedoch natürlich auch mit eurem Arbeitgeber eine freiwillige Teilzeit vereinbaren (ohne Kündigungsschutz).',
       'Erfahrt hier, ob ihr Anspruch habt:',
     ],
     cta: { label: 'Mehr über Eltern-Teilzeit erfahren', href: '/elternteilzeit-20-20/' },
@@ -122,14 +133,17 @@ const steps: Step[] = [
     title: 'Arbeitssuchend & "Karenz"?',
     description: [
       'Du bist gerade arbeitssuchend/arbeitslos?',
-      "Falls dein/e Partner/in Anspruch auf einkommensabhängiges Kinderbetreuungsgeld hat, dann kannst du auch ohne Job den Basissatz Sonderleistung 1 beziehen. Damit bekommt man zumindest ca. 1'200€ / Monat.",
+      "Falls ein Elternteil Anspruch auf einkommensabhängiges Kinderbetreuungsgeld hat, dann kann das andere (arbeitslose) Elternteil auch ohne Job den Basissatz Sonderleistung 1 beziehen. Damit bekommt man zumindest ca. 1'200€ / Monat. Hierfür beantragt man einfach einkommensabhängiges Kinderbetreuungsgeld und bekommt dann nach der Prüfung die Info und den Antrag auf Sonderleistung 1 von der ÖGK zugeschickt.",
       'Wichtig: Während du Sonderleistung 1 bekommst, musst du dich vom AMS Arbeitslosengeld abmelden. Ein gleichzeitiger Bezug ist nicht möglich.',
       'Auch eine gute Nachricht bzgl. Arbeitslosengeld: Mit Kind hast du Anspruch auf Familienzuschlag.',
+      'Außerdem musst du nur mindestens 20h/Woche für eine neue Arbeitsstelle zur Verfügung stehen, falls ihr zukünftig das 20h/20h-Modell nutzen wollt.',
+      'Eine "AMS-Karenz" ist somit natürlich ebenso eine Möglichkeit, für dein Kind zu sorgen während der Suche nach einer neuen (familienfreundlichen) Arbeitststelle.',
     ],
     cta: { label: 'Mehr zu Arbeitssuchend & "Karenz"', href: '/arbeitssuchend-karenz/' },
 
     variant: 'sub',
   },
+  // TODO: Add "Urlaub nehmen für Karenz?"
   {
     number: '4',
     kicker: 'Schritt 4: Eure Planung absichern',
@@ -201,9 +215,8 @@ const steps: Step[] = [
 <Layout>
   <ContentPage title="Die Schritte im Überblick" align="center" prose={false}>
     <p slot="subtitle" class="text-base leading-relaxed text-slate-600">
-      Diese Seite ist <strong>„Hilfe zur Selbsthilfe"</strong>. Spielt hier unverbindlich
-      verschiedene Szenarien durch und bekommt ein Gefühl für eure Möglichkeiten, bevor ihr die
-      offiziellen Schritte angeht.
+      Diese Seite ist <strong>„Hilfe zur Selbsthilfe für Väter"</strong>. Spiel hier unverbindlich
+      verschiedene Szenarien durch und bekomm ein Gefühl für eure Möglichkeiten.
     </p>
 
     <ol class="mt-10 list-none space-y-6 p-0" aria-label="Planungsschritte">

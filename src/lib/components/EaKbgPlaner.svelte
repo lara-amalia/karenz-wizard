@@ -1080,7 +1080,7 @@
 						<div class="control-checkbox__text">
 							<span>Gemeinsamer Monat beim ersten Wechsel</span>
 							{#if jointMonth}
-								<small>eaKBG Gesamt-Anspruch wird um 1 Monat kürzer</small>
+								<small>eaKBG Gesamt-Zeitraum wird um 1 Monat kürzer</small>
 							{:else}
 								<!-- quick hack to fix unecessary layout shift on height-->
 								<small>&nbsp;</small>
