@@ -1,0 +1,36 @@
+---
+// "Offizielle Informationsquellen:" link list shown above the <NextStep>
+// CTA on each step subpage. Sourced from step.moreInformation.links —
+// renders nothing if the step has no links.
+import type { Step } from '~/data/steps';
+
+type Props = {
+  step: Step;
+};
+
+const { step } = Astro.props;
+const links = step.moreInformation?.links ?? [];
+---
+
+{
+  links.length > 0 && (
+    <section class="not-prose mx-auto mt-12 mb-6 max-w-3xl">
+      <h2 class="mb-3 text-base font-semibold text-slate-900">Informationsquellen:</h2>
+      <ul class="space-y-2">
+        {links.map((link) => (
+          <li class="text-sm leading-relaxed sm:text-base">
+            <a
+              href={link.url}
+              class="text-slate-800 underline underline-offset-2 hover:text-[#C94D54]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.title}
+            </a>
+            <span class="text-slate-500"> – {link.source}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

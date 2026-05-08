@@ -18,7 +18,7 @@
 
 <div class="rounded-xl border border-slate-200 bg-white px-6 shadow-sm">
 	<h3 class="mb-4 text-lg font-semibold text-slate-900">
-		FZB-Rechner für Erwerbstätigkeitserfordernis (182 Tage Frist)
+		Stichtag-Rechner für Erwerbstätigkeitserfordernis (182 Tage Frist)
 	</h3>
 
 	<div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
@@ -66,7 +66,7 @@
 		</p>
 
 		<p>
-			⚠️ Alle Informationen zu den weiteren <a
+			⚠️ Alle Informationen zu den allgemeinen  <a
 				href="https://www.oesterreich.gv.at/de/themen/familie_und_partnerschaft/finanzielle-unterstuetzungen/Seite.080623#Vorauss"
 				target="_blank"
 				class="underline">Anspruchsvoraussetzungen</a

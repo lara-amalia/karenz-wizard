@@ -1,38 +1,71 @@
 ---
-// Reusable "go to next step" CTA shown at the end of each step subpage
-// linked from /schritte-im-ueberblick/.
+// "Zum nächsten Schritt" CTA at the end of each step subpage.
+//
+// Preferred usage:
+//
+//   <NextStep step={step} />
+//
+// Pass the current step (from `getStep('5')` etc.) and the component
+// looks up the next step in steps.ts via `getStepNeighbors`. Renders
+// nothing when there is no next step (last entry in the array).
+//
+// Manual overrides (`number`, `label`, `href`) are still accepted for
+// special cases — when explicitly provided they win over the auto
+// lookup. This also keeps the component drop-in compatible with the
+// older API.
+import { getStepNeighbors, type Step } from '~/data/steps';
+
 type Props = {
-  href: string;
-  label: string; // short title of the next step
-  number?: string; // optional step number (e.g. "3.2")
+  step?: Step;
+  number?: string;
+  label?: string;
+  href?: string;
 };
 
-const { href, label, number } = Astro.props;
+const { step, number: numberProp, label: labelProp, href: hrefProp } = Astro.props;
+
+const auto = step ? getStepNeighbors(step.number).next : undefined;
+
+// Strip a leading "X." / "X.Y " number prefix from the auto-resolved
+// title so the label reads naturally next to the badge.
+const stripPrefix = (t: string) => t.replace(/^\d+(\.\d+)?\.?\s+/, '');
+
+const number = numberProp ?? auto?.number;
+const label = labelProp ?? (auto ? stripPrefix(auto.title).replace(/&shy;/g, '') : undefined);
+const href = hrefProp ?? auto?.href;
+
+const visible = !!href;
 ---
 
-<aside class="not-prose mx-auto mt-12 mb-8 max-w-3xl">
-  <a
-    href={href}
-    class="flex items-center justify-between gap-4 rounded-2xl border border-slate-200/60 bg-white px-6 py-5 shadow-sm transition hover:border-[#C94D54]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]"
-  >
-    <div class="flex items-center gap-4">
-      {number && (
-        <span
-          class="shrink-0 font-heading text-2xl font-bold leading-none tabular-nums text-[#C94D54]"
-          aria-hidden="true"
-        >
-          {number}
+{
+  visible && (
+    <aside class="not-prose mx-auto mt-2 mb-8 max-w-3xl">
+      <a
+        href={href}
+        class="flex items-center justify-between gap-4 rounded-2xl border border-slate-200/60 bg-white px-6 py-5 shadow-sm transition hover:border-[#C94D54]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]"
+      >
+        <div class="flex items-center gap-4">
+          {number && (
+            <span
+              class="shrink-0 font-heading text-2xl font-bold leading-none tabular-nums text-[#C94D54]"
+              aria-hidden="true"
+            >
+              {number}
+            </span>
+          )}
+          <div class="flex flex-col">
+            <span class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Zum nächsten Schritt
+            </span>
+            <span class="text-base font-semibold leading-snug text-slate-900 sm:text-lg">
+              {label}
+            </span>
+          </div>
+        </div>
+        <span class="shrink-0 text-2xl text-[#C94D54]" aria-hidden="true">
+          →
         </span>
-      )}
-      <div class="flex flex-col">
-        <span class="text-xs font-semibold uppercase tracking-wide text-slate-500">
-          Zum nächsten Schritt
-        </span>
-        <span class="text-base font-semibold leading-snug text-slate-900 sm:text-lg">
-          {label}
-        </span>
-      </div>
-    </div>
-    <span class="shrink-0 text-2xl text-[#C94D54]" aria-hidden="true">→</span>
-  </a>
-</aside>
+      </a>
+    </aside>
+  )
+}

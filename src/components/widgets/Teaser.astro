@@ -1,0 +1,21 @@
+---
+// Renders a step's teaser. Supports both single-string and string[] teasers
+// from steps.ts — each entry becomes its own <p>. Only the first paragraph
+// gets the `.lead` style (semibold, slightly larger) per editorial lede
+// convention; subsequent paragraphs render as regular body text.
+//
+// Renders an `#after-teaser` sentinel directly after the paragraphs so
+// callers from the overview page can link with `${step.href}#after-teaser`
+// to skip the teaser users have already read on the card.
+import { teaserParagraphs, type Step } from '~/data/steps';
+
+type Props = {
+  step: Step;
+};
+
+const { step } = Astro.props;
+const paragraphs = teaserParagraphs(step);
+---
+
+{paragraphs.map((p, i) => <p class={i === 0 ? 'lead' : undefined} set:html={p} />)}
+<div id="inhalt" class="scroll-mt-20" aria-hidden="true" tabindex="-1"></div>

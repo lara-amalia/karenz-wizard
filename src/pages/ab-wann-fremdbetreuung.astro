@@ -2,10 +2,20 @@
 import Layout from '~/layouts/Layout.astro';
 import NextStep from '~/components/widgets/NextStep.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+import KeyFacts from '~/components/widgets/KeyFacts.astro';
+import Teaser from '~/components/widgets/Teaser.astro';
+import MoreInformation from '~/components/widgets/MoreInformation.astro';
+import { getStep } from '~/data/steps';
+
+const step = getStep('6')!;
+const keyFacts = ['Punkt 1 - <strong>fett markierter Text</strong>', 'Punkt 2', 'Punkt 3'];
 ---
 
 <Layout>
-  <ContentPage title="Ab wann in Fremdbetreuung / Kindergarten?" step={{ number: '5' }}>
+  <ContentPage title={step.title} step={{ number: step.number }} showDisclaimer={false}>
+    <Teaser step={step} />
+    <!-- <KeyFacts items={keyFacts} /> -->
+    <h3>Die (emotionale) Frage der Fremdbetreuung</h3>
     <p>🚧 In Arbeit, mehr Infos ergänzen 🚧</p>
     <p>
       Das Thema "Ab wann Kleinkinder in die Fremdbetreuung eingewöhnen" ist — so scheint es mir
@@ -34,8 +44,10 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
     </p>
 
     <blockquote>
-      <p>Für die Gehirnentwicklung eines Kindes ist es nicht gut, wenn es mit unter zwei Jahren in
-        die Kita gegeben wird.</p>
+      <p>
+        Für die Gehirnentwicklung eines Kindes ist es nicht gut, wenn es mit unter zwei Jahren in
+        die Kita gegeben wird.
+      </p>
     </blockquote>
 
     <p>
@@ -44,10 +56,12 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       dazu verschiedene Entwicklungspsycholog:innen:
     </p>
     <blockquote>
-      <p>Die richtige Entscheidung – da sind sich die Kleinkindpädagogin Susanne Mierau, der
+      <p>
+        Die richtige Entscheidung – da sind sich die Kleinkindpädagogin Susanne Mierau, der
         Kinderarzt Herbert Renz-Polster sowie die Entwicklungspsychologen Moritz Daum und Stephanie
         Wermelinger einig – gibt es nicht. Eines ist jedoch klar: Pauschal zu sagen, es würde
-        Kindern schaden, in den ersten beiden Lebensjahren eine Kita zu besuchen, ist falsch.</p>
+        Kindern schaden, in den ersten beiden Lebensjahren eine Kita zu besuchen, ist falsch.
+      </p>
       <cite
         ><a
           href="https://www.psychologie.uzh.ch/dam/jcr:6b8c6370-f44c-4655-9a3e-b3e06f45ddf7/231124_Stefanie%20Stahls%20Aussagen%20im%20Faktencheck_%20Schadet%20die%20Kita%20einem%20Kind_%20_%20STERN.de.pdf"
@@ -64,10 +78,12 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       Stressfaktoren massiv abfedern:
     </p>
     <blockquote>
-      <p>Eingewöhnung bedeutet für die Kinder Stress... "In den ersten Wochen der Eingewöhnung erhöht
+      <p>
+        Eingewöhnung bedeutet für die Kinder Stress... "In den ersten Wochen der Eingewöhnung erhöht
         sich das Stresshormon Cortisol"... Mit welchem Alter Kinder am besten eingewöhnt werden
         sollten? Dazu kann weder die Pädagogin noch die Entwicklungspsychologin eine Empfehlung
-        abgeben... Mehr Personal ist wichtig.</p>
+        abgeben... Mehr Personal ist wichtig.
+      </p>
       <cite
         ><a
           href="https://www.derstandard.at/story/2000144233864/mama-geht-arbeiten-aber-was-macht-es-mit-den-kleinen"
@@ -87,8 +103,10 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       Lebensjahr in den Kindergarten zu schicken:
     </p>
     <blockquote>
-      <p>Frühestens ab dem vollendeten 2,5. Lebensjahr. Ab September 2024 ist eine Aufnahme von
-        Kinder ab Vollendung des 2. Lebensjahres möglich.</p>
+      <p>
+        Frühestens ab dem vollendeten 2,5. Lebensjahr. Ab September 2024 ist eine Aufnahme von
+        Kinder ab Vollendung des 2. Lebensjahres möglich.
+      </p>
       <cite
         ><a
           href="https://www.noe.gv.at/noe/Kindergaerten-Schulen/Elternfragen_zum_Thema_Kindergarten.html"
@@ -98,8 +116,10 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
     </blockquote>
     <p>Die Stadt Wien hat so eine minimale Alters-Grenze nicht:</p>
     <blockquote>
-      <p>Laut Statistik Austria befindet sich jedes dritte Kind (29,1 Prozent) zwischen null und zwei
-        Jahren in Fremdbetreuung, der Großteil davon in Wien (44,3 Prozent)...</p>
+      <p>
+        Laut Statistik Austria befindet sich jedes dritte Kind (29,1 Prozent) zwischen null und zwei
+        Jahren in Fremdbetreuung, der Großteil davon in Wien (44,3 Prozent)...
+      </p>
       <cite
         ><a
           href="https://www.derstandard.at/story/2000144233864/mama-geht-arbeiten-aber-was-macht-es-mit-den-kleinen"
@@ -117,5 +137,6 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       Realität - am besten funktioniert.
     </p>
   </ContentPage>
-  <NextStep number="6" label="Kinderbetreuungsgeld-Antrag stellen" href="/antrag-stellen/" />
+  <MoreInformation step={step} />
+  <NextStep step={step} />
 </Layout>

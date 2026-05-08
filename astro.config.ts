@@ -34,6 +34,9 @@ export default defineConfig({
     '/buecher-broschueren': '/infothek/#literatur',
     '/tools': '/infothek/#tools',
     '/videos': '/infothek/#videos',
+    // Steps 5 + 6 were merged into a single page:
+    '/planung-ueberpruefen': '/planung-ueberpruefen-und-antrag-stellen/',
+    '/antrag-stellen': '/planung-ueberpruefen-und-antrag-stellen/',
   },
 
   integrations: [

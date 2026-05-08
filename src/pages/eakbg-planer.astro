@@ -8,27 +8,34 @@ import EaKbgPlaner from '~/lib/components/EaKbgPlaner.svelte';
 import NextStep from '~/components/widgets/NextStep.astro';
 import StepBreadcrumb from '~/components/widgets/StepBreadcrumb.astro';
 import Disclaimer from '~/components/widgets/Disclaimer.astro';
+import TodoIntegrate from '~/components/widgets/TodoIntegrate.astro';
+import KeyFacts from '~/components/widgets/KeyFacts.astro';
+import Teaser from '~/components/widgets/Teaser.astro';
+import MoreInformation from '~/components/widgets/MoreInformation.astro';
+import { getStep } from '~/data/steps';
+
+const step = getStep('5')!;
+const keyFacts = ['Punkt 1 - <strong>fett markierter Text</strong>', 'Punkt 2', 'Punkt 3'];
 ---
 
 <Layout>
   <section class="content min-w-0">
     <div class="mt-10">
-      <StepBreadcrumb number="3" />
+      <StepBreadcrumb number={step.number} />
     </div>
     <div class="mt-4 min-w-0">
-      <h1 id="planner-title" class="text-3xl font-semibold text-slate-900">
-        eaKBG Planer für Paare
-      </h1>
+      <h1 id="planner-title" class="text-3xl font-semibold text-slate-900" set:html={step.title} />
       <Disclaimer />
-      <p class="leading-relaxed text-slate-800 mb-6">
-        Starte hier mit den minimalen zwei Monaten Väterkarenz beim einkommens&shy;abhängigen
-        Kinderbetreuungs&shy;geld. Schau dir Möglichkeiten an, wie du länger in Karenz gehen kannst.
-        Entweder indem die Mutter weniger Monate nimmt im ersten Teil - oder indem du als Vater noch
-        in "unbezahlte Karenz" gehst nach den 14 Monaten. Eltern-Teilzeit könnte ebenso eine Option
-        sein, falls du Anspruch hast².
-      </p>
+      <!-- This page lives outside <ContentPage>'s `prose` wrapper, so the
+           Teaser's adjacent <p> elements carry no prose margin between them.
+           Wrap in a space-y div to restore inter-paragraph spacing. -->
+      <div class="space-y-4">
+        <Teaser step={step} />
+      </div>
+      <!-- <KeyFacts items={keyFacts} />
+      <TodoIntegrate paragraphs={step.oldTexts ?? []} /> -->
     </div>
-    <h2 class="text-2xl font-semibold text-slate-900 mb-2">Karenz interaktiv aufteilen</h2>
+    <h2 class="text-2xl font-semibold text-slate-900 mb-4 mt-4">Karenz interaktiv aufteilen</h2>
     <EaKbgPlaner client:load />
 
     <aside class="not-prose mx-auto mt-12 mb-4 max-w-3xl">
@@ -62,12 +69,24 @@ import Disclaimer from '~/components/widgets/Disclaimer.astro';
         </li>
         <li>
           <a
-            href="/arbeitssuchend-karenz/"
+            href="/urlaub-karenz-verlaengern/"
             class="flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white px-4 py-3 text-sm transition hover:border-[#C94D54]/40 hover:shadow-sm sm:text-base"
           >
             <span
               class="shrink-0 font-heading font-bold tabular-nums text-slate-400"
               aria-hidden="true">3.3</span
+            >
+            <span class="text-slate-800">Option: Karenz durch Urlaub verlängern</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/arbeitssuchend-karenz/"
+            class="flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white px-4 py-3 text-sm transition hover:border-[#C94D54]/40 hover:shadow-sm sm:text-base"
+          >
+            <span
+              class="shrink-0 font-heading font-bold tabular-nums text-slate-400"
+              aria-hidden="true">3.4</span
             >
             <span class="text-slate-800">Arbeitssuchend &amp; "Karenz"?</span>
           </a>
@@ -75,10 +94,7 @@ import Disclaimer from '~/components/widgets/Disclaimer.astro';
       </ul>
     </aside>
 
-    <NextStep
-      number="4"
-      label="Eure Planung kostenfrei überprüfen lassen"
-      href="/planung-ueberpruefen/"
-    />
+    <MoreInformation step={step} />
+  <NextStep step={step} />
   </section>
 </Layout>

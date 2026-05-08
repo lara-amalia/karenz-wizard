@@ -1,23 +1,23 @@
 ---
 import Layout from '~/layouts/Layout.astro';
-import ContentPage from '~/components/widgets/ContentPage.astro';
 import NextStep from '~/components/widgets/NextStep.astro';
+import ContentPage from '~/components/widgets/ContentPage.astro';
 import Teaser from '~/components/widgets/Teaser.astro';
 import MoreInformation from '~/components/widgets/MoreInformation.astro';
 import { getStep } from '~/data/steps';
 
-const step = getStep('1')!;
+const step = getStep('2')!;
 ---
 
 <Layout>
   <ContentPage title={step.title} step={{ number: step.number }} showDisclaimer={false}>
     <Teaser step={step} />
-    <p class="text-center">
-      <a href="https://elternkalender.arbeiterkammer.at/" target="_blank" rel="noopener noreferrer"
-        >Zum AK Elternkalender ↗</a
-      >
-    </p>
+    <ul>
+      <li><a href="/ak-beratung/">AK Beratung und Info-Veranstaltungen</a></li>
+      <li><a href="/sonstige-beratungen/">Sonstige Beratungen, bspw. Papainfo-Webinare</a></li>
+    </ul>
   </ContentPage>
+
   <MoreInformation step={step} />
   <NextStep step={step} />
 </Layout>

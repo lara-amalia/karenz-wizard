@@ -6,7 +6,7 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
 ---
 
 <Layout>
-  <ContentPage title="ÖGK-Beratung">
+  <ContentPage title="ÖGK-Beratung" showDisclaimer={false}>
     <p>
       Dein Kinderbetreuungsgeld beantragst du direkt bei der Österreichischen Gesundheitskasse
       (ÖGK), die sich auch um die Auszahlung kümmert. Sie ist zudem deine Anlaufstelle für alle
@@ -39,5 +39,6 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
         >
       </li>
     </ul>
+    <p>In Wien kann bspw. auch vorab online ein Termin vereinbart werden.</p>
   </ContentPage>
 </Layout>

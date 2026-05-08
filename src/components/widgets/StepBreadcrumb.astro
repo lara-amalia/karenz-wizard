@@ -1,19 +1,56 @@
 ---
+import { getStepNeighbors, totalMainSteps } from '~/data/steps';
+
 type Props = {
   number: string;
+  // total kept for backwards-compat with existing callers, but ignored —
+  // total is now sourced centrally from steps.ts.
   total?: number;
 };
 
-const { number, total = 9 } = Astro.props;
+const { number } = Astro.props;
+const { prev, next } = getStepNeighbors(number);
+
+// On step 1 the "previous" link points back to the overview page so
+// the user always has a way back up the tree.
+const prevHref = prev?.href ?? '/schritte-im-ueberblick/';
+const prevLabel = prev ? `Schritt ${prev.number}` : 'Übersicht';
 ---
 
-<nav class="text-sm text-slate-500" aria-label="Breadcrumb">
+<nav
+  class="flex items-center justify-between gap-3 text-sm text-slate-600"
+  aria-label="Schritt-Navigation"
+>
+  <a
+    href={prevHref}
+    class="rounded-md px-2 py-1 hover:text-slate-900 hover:underline underline-offset-4 no-underline decoration-1"
+    aria-label={prev ? `Vorheriger Schritt: ${prev.number}` : 'Zurück zur Übersicht'}
+  >
+    <span aria-hidden="true">←</span>
+    {prevLabel}
+  </a>
+
   <a
     href="/schritte-im-ueberblick/"
-    class="hover:text-slate-700 hover:underline underline-offset-4"
+    class="rounded-md px-2 py-1 font-medium text-slate-500 hover:text-slate-900 no-underline decoration-1"
   >
-    Schritte
+    Überblick
+    <span class="sr-only">(Schritt {number} von {totalMainSteps})</span>
   </a>
-  <span class="mx-2 text-slate-400" aria-hidden="true">›</span>
-  <span>Schritt {number} von {total}</span>
+
+  {
+    next ? (
+      <a
+        href={next.href}
+        class="rounded-md px-2 py-1 hover:text-slate-900 no-underline hover:underline underline-offset-4 decoration-1"
+        aria-label={`Nächster Schritt: ${next.number}`}
+      >
+        Schritt {next.number} <span aria-hidden="true">→</span>
+      </a>
+    ) : (
+      <span aria-hidden="true" class="px-2 py-1 opacity-0">
+        →
+      </span>
+    )
+  }
 </nav>

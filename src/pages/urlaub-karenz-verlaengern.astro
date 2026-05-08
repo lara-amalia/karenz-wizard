@@ -1,20 +1,18 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
-import TodoIntegrate from '~/components/widgets/TodoIntegrate.astro';
+import NextStep from '~/components/widgets/NextStep.astro';
 import Teaser from '~/components/widgets/Teaser.astro';
 import MoreInformation from '~/components/widgets/MoreInformation.astro';
 import { getStep } from '~/data/steps';
 
-const step = getStep('9')!;
-const keyFacts = ['Punkt 1 - <strong>fett markierter Text</strong>', 'Punkt 2', 'Punkt 3'];
+const step = getStep('5.3')!;
 ---
 
 <Layout>
   <ContentPage title={step.title} step={{ number: step.number }}>
     <Teaser step={step} />
-    <!--<KeyFacts items={keyFacts} /> -->
-    <p>🚧 Inhalt in Arbeit 🚧</p>
+    <MoreInformation step={step} />
+  <NextStep step={step} />
   </ContentPage>
-  <MoreInformation step={step} />
 </Layout>

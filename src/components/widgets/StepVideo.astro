@@ -1,0 +1,33 @@
+---
+// "Videos zum Thema:" section shown at the bottom of each step subpage.
+// Renders zero-or-more YouTube embeds from `step.moreInformation.embed`
+// (an array). Renders nothing if the step has no embeds.
+import PrivacyEmbed from '~/components/blog/PrivacyEmbed.astro';
+import type { Step } from '~/data/steps';
+
+type Props = {
+  step: Step;
+};
+
+const { step } = Astro.props;
+const embeds = step.moreInformation?.embed ?? [];
+---
+
+{
+  embeds.length > 0 && (
+    <section class="mx-auto mt-2 mb-12 max-w-3xl">
+      <h2 class="mb-4 text-xl font-semibold text-slate-900">Videos zum Thema:</h2>
+
+      <div class="space-y-6">
+        {embeds.map((e) => (
+          <PrivacyEmbed
+            provider={e.provider}
+            embedUrl={e.embedUrl}
+            title={e.title}
+            directUrl={e.directUrl}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}

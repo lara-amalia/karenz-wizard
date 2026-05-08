@@ -66,7 +66,7 @@ const storageKey = `embed-consent-${provider}`;
         }
       </div>
 
-      <h3 class="privacy-title">Inhalt von {providerName}</h3>
+      <h3 class="privacy-title">{title}</h3>
 
       <p class="privacy-description">
         Dieser Inhalt wird von {providerName} bereitgestellt. Beim Laden werden Daten an {
@@ -75,7 +75,9 @@ const storageKey = `embed-consent-${provider}`;
       </p>
 
       <div class="privacy-actions">
-        <button class="privacy-load-btn" data-action="load-once">Inhalt laden</button>
+        <button class="privacy-load-btn" data-action="load-once"
+          >Inhalte von {providerName} laden</button
+        >
       </div>
 
       {
