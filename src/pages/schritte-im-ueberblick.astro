@@ -258,8 +258,9 @@ const steps: Step[] = [
                       'mt-1 font-heading font-bold leading-tight text-slate-900 ' +
                       (step.variant === 'sub' ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl')
                     }
-                    set:html={step.title}
-                  />
+                  >
+                    <a href={step.cta.href} class="hover:underline" set:html={step.title} />
+                  </h2>
                 </div>
               </div>
 
