@@ -88,6 +88,16 @@
 		thirdMonths = clamp(thirdMonths + delta, MIN_THIRD_MONTHS, MAX_THIRD_MONTHS);
 	};
 
+	const handleStepperKey = (e: KeyboardEvent, adjust: (delta: number) => void) => {
+		if (e.key === 'ArrowUp' || e.key === 'ArrowRight') {
+			e.preventDefault();
+			adjust(1);
+		} else if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') {
+			e.preventDefault();
+			adjust(-1);
+		}
+	};
+
 	const applyExample = (motherPreset: number, fatherPreset: number) => {
 		// reset these, to avoid confusion (and false results with unpaid months)
 		jointMonth = false;
@@ -917,51 +927,8 @@
 	const toX = (weeks: number) => margins.left + weeks * scale;
 </script>
 
-<section class="content planner-page min-w-0">
-	<div class="page-header mt-4 min-w-0">
-		<h1 id="planner-title" class="text-3xl font-semibold text-slate-900">
-			eaKBG Planer für Paare
-		</h1> 
-	
-		<aside
-			class="not-prose rounded-r-md border-l-4 border-slate-300 bg-slate-50 px-4 py-2 text-sm text-slate-700"
-			role="note"
-		>
-			<div class="flex items-center gap-3">
-				<svg
-					class="mt-0.5 h-5 w-5 shrink-0 text-slate-500"
-					viewBox="0 0 20 20"
-					fill="currentColor"
-					aria-hidden="true"
-				>
-					<path
-						fill-rule="evenodd"
-						d="M18 10A8 8 0 11 2 10a8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-						clip-rule="evenodd"
-					></path>
-				</svg>
-				<p class="m-0">
-					Diese Webseite ist ein privates Hobby-Projekt – die Infos hier können Fehler enthalten. Bitte lass dich vor einem Antrag unbedingt kostenfrei bei
-					der
-					<a
-						class="font-medium text-slate-900 underline underline-offset-2 hover:text-slate-700"
-						href="/ak-beratung/">AK</a
-					>
-					oder
-					<a
-						class="font-medium text-slate-900 underline underline-offset-2 hover:text-slate-700"
-						href="/oegk-beratung/">ÖGK</a
-					> beraten!
-				</p>
-			</div>
-		</aside>
-    	<p class="subline">
-      Starte hier mit den minimalen zwei Monaten Väterkarenz und schau dir Möglichkeiten an, wie du länger in Karenz gehen kannst. Entweder indem die Mutter weniger Monate nimmt im ersten Teil - oder indem du als Vater noch in "unbezahlte Karenz" gehst. Eltern-Teilzeit könnte ebenso eine Option sein (falls du Anspruch hast²).
-		</p>
-	</div>
-
-	<section>
-		<div class="example-presets mb-2 min-w-0">
+<section>
+	<div class="example-presets mb-2 min-w-0">
 			<span>Beispiele:</span> 
 
 			<button type="button" onclick={() => applyExample(12, 2)} class="example-link">12 + 2</button
@@ -973,7 +940,7 @@
 			<button type="button" onclick={() => applyExample(8, 6)} class="example-link">8 + 6</button>
 			|
 			<button type="button" onclick={() => applyExample(7, 7)} class="example-link"
-				>7 + 7 ¹(Hinweise beachten)</button
+				>7 + 7 ¹</button
 			>
 			|
 			<button type="button" onclick={() => applyExample(12, 12)} class="example-link"
@@ -984,8 +951,8 @@
 
 	<section aria-labelledby="planner-title" class="timeline-section min-w-0">
 		<div class="planner-panel min-w-0">
-			<div class="planner-controls flex min-w-0 flex-row flex-wrap">
-				<div class="flex min-w-0 flex-row self-start">
+			<div class="planner-controls flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start md:items-center sm:justify-center sm:gap-10">
+				<div class="flex min-w-0 flex-col gap-3 sm:flex-row sm:gap-4">
 					<div class="control-group min-w-0">
 						<label for="mother-months">Karenz-Teil 1: Mutter</label>
 						<div class="stepper min-w-0">
@@ -994,21 +961,40 @@
 								onclick={() => adjustMotherMonths(-1)}
 								aria-label="Monat verringern"
 							>
-								-
+								<svg
+									class="stepper-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									focusable="false"
+								>
+									<path d="M5 12h14" />
+								</svg>
 							</button>
 							<input
 								id="mother-months"
-								type="number"
-								min={MIN_MOTHER_MONTHS}
-								max={MAX_MOTHER_MONTHS}
-								bind:value={motherMonths}
+								type="text"
+								inputmode="numeric"
+								readonly
+								aria-valuemin={MIN_MOTHER_MONTHS}
+								aria-valuemax={MAX_MOTHER_MONTHS}
+								aria-valuenow={motherMonths}
+								role="spinbutton"
+								value={motherMonths}
+								onkeydown={(e) => handleStepperKey(e, adjustMotherMonths)}
 							/>
 							<button
 								type="button"
 								onclick={() => adjustMotherMonths(1)}
 								aria-label="Monat erhoehen"
 							>
-								+
+								<svg
+									class="stepper-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									focusable="false"
+								>
+									<path d="M12 5v14M5 12h14" />
+								</svg>
 							</button>
 						</div>
 					</div>
@@ -1020,21 +1006,40 @@
 								onclick={() => adjustFatherMonths(-1)}
 								aria-label="Monat verringern"
 							>
-								-
+								<svg
+									class="stepper-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									focusable="false"
+								>
+									<path d="M5 12h14" />
+								</svg>
 							</button>
 							<input
 								id="father-months"
-								type="number"
-								min={MIN_FATHER_MONTHS}
-								max={MAX_FATHER_MONTHS}
-								bind:value={fatherMonths}
+								type="text"
+								inputmode="numeric"
+								readonly
+								aria-valuemin={MIN_FATHER_MONTHS}
+								aria-valuemax={MAX_FATHER_MONTHS}
+								aria-valuenow={fatherMonths}
+								role="spinbutton"
+								value={fatherMonths}
+								onkeydown={(e) => handleStepperKey(e, adjustFatherMonths)}
 							/>
 							<button
 								type="button"
 								onclick={() => adjustFatherMonths(1)}
 								aria-label="Monat erhoehen"
 							>
-								+
+								<svg
+									class="stepper-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									focusable="false"
+								>
+									<path d="M12 5v14M5 12h14" />
+								</svg>
 							</button>
 						</div>
 					</div>
@@ -1046,45 +1051,60 @@
 								onclick={() => adjustThirdMonths(-1)}
 								aria-label="Monat verringern"
 							>
-								-
+								<svg
+									class="stepper-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									focusable="false"
+								>
+									<path d="M5 12h14" />
+								</svg>
 							</button>
 							<input
 								id="third-months"
-								type="number"
-								min={MIN_THIRD_MONTHS}
-								max={MAX_THIRD_MONTHS}
-								bind:value={thirdMonths}
+								type="text"
+								inputmode="numeric"
+								readonly
+								aria-valuemin={MIN_THIRD_MONTHS}
+								aria-valuemax={MAX_THIRD_MONTHS}
+								aria-valuenow={thirdMonths}
+								role="spinbutton"
+								value={thirdMonths}
+								onkeydown={(e) => handleStepperKey(e, adjustThirdMonths)}
 							/>
 							<button
 								type="button"
 								onclick={() => adjustThirdMonths(1)}
 								aria-label="Monat erhoehen"
 							>
-								+
+								<svg
+									class="stepper-icon"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+									focusable="false"
+								>
+									<path d="M12 5v14M5 12h14" />
+								</svg>
 							</button>
 						</div>
 					</div>
 				</div>
-				<div class="mt-2 flex min-w-0 flex-col gap-4 self-start">
+				<div class="flex min-w-0 flex-col gap-3 md:border-l md:pl-4 border-t pt-4 md:pt-0 md:border-t-0">
 					<label class="control-checkbox">
 						<input type="checkbox" bind:checked={extendedMutterschutz} />
 						<div class="control-checkbox__text">
 							<span
-								>Mutterschutz 12 Wochen (statt 8 Wochen) <br />(Früh-/Mehrlings-Geburt,
-								Kaiserschnitt)</span
+								>Mutterschutz 12 Wochen (statt 8 Wochen) <br /></span
 							>
+              <small>bei Früh-/Mehrlings-Geburt,
+								Kaiserschnitt</small>
 						</div>
 					</label>
 					<label class="control-checkbox">
 						<input type="checkbox" bind:checked={jointMonth} />
 						<div class="control-checkbox__text">
 							<span>Gemeinsamer Monat beim ersten Wechsel</span>
-							{#if jointMonth}
-								<small>eaKBG Gesamt-Zeitraum wird um 1 Monat kürzer</small>
-							{:else}
-								<!-- quick hack to fix unecessary layout shift on height-->
-								<small>&nbsp;</small>
-							{/if}
+              <small>eaKBG Gesamt-Zeitraum wird um 1 Monat kürzer</small>
 						</div>
 					</label>
 				</div>
@@ -1439,7 +1459,6 @@
 			> 
 				Eltern-Teilzeit ist eine tolle Option, auch nach der Karenz mehr Gleichberechtigung zu ermöglichen. Sogar mit Kündigungsschutz. Dies geht beispieslweise auch im 20h/20h-Modell, man wechselt sich zu Mittag ab mit der Kinderbetreuung. Doch nicht jede:r hat Anspruch in seinem Betrieb. Mehr Informationen hier: <a href="/elternteilzeit-20-20/" class="underline">Eltern-Teilzeit</a>.
     </p>
-    
 
 		<NoteGrid />
 		<TimelineSummary {segmentSummaries} bind:birthDateInput {formatSegmentRange} open={false} />
@@ -1764,7 +1783,6 @@
 			</div>
 		</div>
 	</section>
-</section>
 
 <style lang="postcss">
 	/* TODO: convert to tailwind inline styles */
@@ -1815,7 +1833,6 @@
 	}
 
 	/* Let flex/grid children shrink on small screens */
-	.planner-page,
 	.timeline-section,
 	.planner-controls,
 	.timeline-window,
@@ -1827,13 +1844,6 @@
 
 	.invisible-stroke {
 		stroke: none !important;
-	}
-
-	/* TODO: add this to div element? general css or inline?*/
-	/* Container */
-	.planner-page {
-		@apply gap-6;
-		font-family: var(--planner-font);
 	}
 
 	.planner-heading {
@@ -1848,17 +1858,8 @@
 		);
 	}
 
-	/* TODO: generalize this, not special for this page? */
-	.page-header {
-		@apply mb-4 grid gap-3;
-	}
-
 	.planner-panel {
 		@apply grid gap-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm;
-	}
-
-	.subline {
-		@apply text-sm leading-relaxed text-slate-800;
 	}
 
 	.planner-quick-info {
@@ -1878,7 +1879,7 @@
 	}
 
 	.planner-controls {
-		@apply w-full items-end gap-4 border-b border-slate-200 bg-white px-4 py-3;
+		@apply w-full gap-4 border-b border-slate-200 bg-white px-4 py-3;
 	}
 
 	.example-presets {
@@ -1894,7 +1895,7 @@
 	}
 
 	.control-group {
-		@apply grid gap-1.5;
+		@apply grid w-full gap-1.5 sm:w-auto;
 	}
 
 	.control-group label {
@@ -1906,23 +1907,31 @@
 	}
 
 	.stepper {
-		@apply inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-2 py-1;
+		@apply inline-flex w-full items-stretch divide-x divide-slate-300 overflow-hidden rounded-lg border border-slate-300 bg-white sm:w-auto sm:justify-self-start;
 	}
 
 	.stepper button {
-		@apply grid h-11 w-11 place-items-center rounded-full border-0 bg-slate-200 text-base font-semibold text-slate-800 transition hover:bg-slate-300;
+		@apply grid h-11 min-w-11 flex-none place-items-center border-0 bg-slate-50 text-slate-800 transition hover:bg-slate-200 active:bg-slate-300 focus-visible:relative focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-slate-400 sm:h-9 sm:min-w-9;
 	}
 
 	.stepper input {
-		@apply w-14 border-0 bg-transparent text-center text-sm font-semibold tracking-wide text-slate-800 focus:outline-none;
+		@apply min-w-0 flex-1 cursor-default border-0 bg-transparent px-2 text-center text-sm font-semibold tabular-nums text-slate-800 caret-transparent select-none focus:outline-none focus-visible:relative focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-slate-400 sm:w-14 sm:flex-none;
+	}
+
+	.stepper-icon {
+		@apply h-4 w-4 stroke-current;
+		fill: none;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
 	}
 
 	.control-checkbox {
-		@apply flex items-start gap-2 text-xs font-semibold text-slate-900;
+		@apply flex items-start gap-2 text-xs text-slate-900;
 	}
 
 	.control-checkbox input {
-		@apply mt-0.5 shrink-0;
+		@apply mt-0.5 h-4 w-4 shrink-0 accent-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400;
 	}
 
 	.control-checkbox__text {
@@ -1934,7 +1943,7 @@
 	}
 
 	.control-checkbox__text small {
-		@apply text-xs font-medium text-amber-600;
+		@apply text-xs font-light;
 	}
 
 	.note-box {

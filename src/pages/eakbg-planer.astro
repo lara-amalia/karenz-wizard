@@ -7,13 +7,28 @@ import Layout from '~/layouts/Layout.astro';
 import EaKbgPlaner from '~/lib/components/EaKbgPlaner.svelte';
 import NextStep from '~/components/widgets/NextStep.astro';
 import StepBreadcrumb from '~/components/widgets/StepBreadcrumb.astro';
+import Disclaimer from '~/components/widgets/Disclaimer.astro';
 ---
 
 <Layout>
-  <section class="content">
+  <section class="content min-w-0">
     <div class="mt-10">
       <StepBreadcrumb number="3" />
     </div>
+    <div class="mt-4 min-w-0">
+      <h1 id="planner-title" class="text-3xl font-semibold text-slate-900">
+        eaKBG Planer für Paare
+      </h1>
+      <Disclaimer />
+      <p class="leading-relaxed text-slate-800 mb-6">
+        Starte hier mit den minimalen zwei Monaten Väterkarenz beim einkommens&shy;abhängigen
+        Kinderbetreuungs&shy;geld. Schau dir Möglichkeiten an, wie du länger in Karenz gehen kannst.
+        Entweder indem die Mutter weniger Monate nimmt im ersten Teil - oder indem du als Vater noch
+        in "unbezahlte Karenz" gehst nach den 14 Monaten. Eltern-Teilzeit könnte ebenso eine Option
+        sein, falls du Anspruch hast².
+      </p>
+    </div>
+    <h2 class="text-2xl font-semibold text-slate-900 mb-2">Karenz interaktiv aufteilen</h2>
     <EaKbgPlaner client:load />
 
     <aside class="not-prose mx-auto mt-12 mb-4 max-w-3xl">
