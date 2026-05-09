@@ -5,33 +5,79 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
 
 <Layout>
   <ContentPage title="Sonderleistung 1">
-    <p>🚧 Inhalt in Arbeit 🚧</p>
-    <p>
-      Wenn dein Partnerin/dein Partner Anspruch auf einkommensabhängiges Kinderbetreuungsgeld hat (<a
-        href="/eakbg-anspruch"
-        class="underline">182-Tage-Regel</a
-      >), du aber nicht - dann hast du trotzdem Anspruch auf einen Basissatz (ca. 1'200€/Monat)
-      Kinderbetreuungsgeld. Die sogenannte Sonderleistung 1.
+    <p class="font-semibold">
+      Wenn nur ein Elternteil Anspruch auf einkommensabhängiges Kinderbetreuungsgeld hat, das andere
+      aber nicht - dann bekommt das Elternteil ohne Anspruch trotzdem einen Basissatz: Die
+      sogenannte „Sonderleistung I“. Diese beträgt aktuell ca. 1'200€/Monat.
     </p>
     <p>
-      Diese Basisleistung kannst du beziehen, während du...
+      Dies kann beispielsweise passieren, wenn ein Elternteil vor Geburt den Job wechselt /
+      Arbeitslosengeld bezieht. Siehe <a href="/eakbg-anspruch" class="underline"
+        >182-Tage-Regel / eaKBG-Anspruch prüfen</a
+      > für mehr Informationen.
+    </p>
+    <p>
+      Die <strong>Sonderleistung 1 kannst du beziehen</strong>, während du...
       <ul>
-        <li>arbeitest und in Karenz gehst</li>
         <li>
-          oder arbeitslos bist (Wichtig: Während du Sonderleistung 1 bekommst, musst du dich vom AMS
-          Arbeitslosengeld abmelden. Ein gleichzeitiger Bezug ist nicht möglich.)
+          <strong>arbeitest und in Karenz gehst</strong>, aber bspw. die 182-Tage-Regel wegen
+          Jobwechsel vorher oder Arbeitslosengeld-, Notstands- oder Weiterbildungsgeld-Bezug nicht
+          erfüllst
+        </li>
+        <li>
+          <strong>arbeitslos bist</strong>
+          <i
+            >(während du Sonderleistung 1 bekommst, musst du dich vom Arbeitslosengeld abmelden. Ein
+            gleichzeitiger Bezug ist nicht möglich.)</i
+          >
         </li>
       </ul>
     </p>
     <p>
-      Du beantragst ganz normal einkommensabhängiges Kinderbetreuungsgeld beim ÖGK, die Prüfung
-      ergibt dann dass du nur Anspruch auf Sonderleistung 1 hast.
+      Während dieser Zeit vom Sonderleistung 1 Bezug bist du auch <strong
+        >krankenversichert bei der ÖGK</strong
+      >.
     </p>
-    <p>Während dieser Zeit bist du auch krankenversichert bei der ÖGK.</p>
+    <!--<p>
+      Du beantragst ganz normal einkommensabhängiges Kinderbetreuungsgeld beim ÖGK für deinen
+      Karenzteil, die Prüfung ergibt dann dass du nur Anspruch auf Sonderleistung 1 hast.
+    </p> -->
+
+    <h3>Erfahrungsbericht: So läuft der Antrag auf Sonderleistung I ab</h3>
+    <p>
+      <ol>
+        <li>
+          Du stellst ganz normal den <a href="/antrag-stellen/" class="underline"
+            >Antrag auf einkommensabhängiges Kinderbetreuungsgeld
+          </a> für deinen Karenz-Teil, dort wird auch abgefragt ob du aktuell erwerbstätig oder arbeitslos
+          bist
+        </li>
+        <li>
+          Nach Prüfung des Antrags und deiner Angaben erhälst du von der ÖGK einen <strong
+            >vorausgefüllten „Antrag auf Sonderleistung I“</strong
+          >, den du dann noch unterschreiben musst. In diesem Antrag ist auch unten der Zeitraum
+          vermerkt, in dem du in Karenz gehst.
+        </li>
+      </ol>
+    </p>
+
+    <a href="/antraege/40a_Antrag_auf_Sonderleistung_1_KBGG40a_03_2025_zensiert.jpg">
+      <img
+        src="/antraege/40a_Antrag_auf_Sonderleistung_1_KBGG40a_03_2025_zensiert.jpg"
+        alt="Beispiel Antrag auf Sonderleistung I, KBGG40a - 03/2025"
+      />
+    </a>
+
+    <p><i>Erfahrungsbericht: Mai 2026, Dokument: KBGG40a - 03/2025</i></p>
+
+    <h3>Rechtsgrundlage</h3>
+
     <blockquote>
-      <p>Erfüllt ein Elternteil nicht das Erwerbstätigkeitserfordernis, so gebührt bei Erfüllung
+      <p>
+        Erfüllt ein Elternteil nicht das Erwerbstätigkeitserfordernis, so gebührt bei Erfüllung
         sämtlicher anderer Anspruchsvoraussetzungen auf Antrag ein einkommensabhängiges
-        Kinderbetreuungsgeld in Höhe von 41,14 Euro täglich (Sonderleistung I).</p><cite
+        Kinderbetreuungsgeld in Höhe von 41,14 Euro täglich (Sonderleistung I).
+      </p><cite
         ><a
           href="https://www.bundeskanzleramt.gv.at/agenda/familie/kinderbetreuungsgeld/basisinformationen-kinderbetreuungsgeld/einkommensabhaengiges-kinderbetreuungsgeld.html"
           >Bundeskanzleramt</a
@@ -39,12 +85,14 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       >
     </blockquote>
     <blockquote>
-      <p>Was ist, wenn nur ein Elternteil die Voraussetzungen für das eaKBG erfüllt? Sie wollen das
+      <p>
+        Was ist, wenn nur ein Elternteil die Voraussetzungen für das eaKBG erfüllt? Sie wollen das
         eaKBG nutzen, aber einer der beiden Elternteile erfüllt die Anspruchsvoraussetzungen nicht?
         Oder liegt der Tagsatz eines Elternteiles unter 41,14€ (2025)? Dann kann dieser Elternteil
         auf eine Sonderleistung umsteigen, die der Dauer des KBG entspricht. Der Tagsatz dafür
         beträgt 41,14€ (2025). Der andere Elternteil, der die Anspruchsvoraussetzungen erfüllt, kann
-        trotzdem das eaKBG beziehen.</p><cite
+        trotzdem das eaKBG beziehen.
+      </p><cite
         ><a
           href="https://www.arbeiterkammer.at/beratung/berufundfamilie/kinderbetreungsgeld/Kinderbetreuungsgeld.html"
           >arbeiterkammer.at</a
@@ -52,15 +100,17 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       >
     </blockquote>
 
-    <h3>Eltern-Teilzeit, während der Partner/die Partnerin Sonderleistung 1 bezieht?</h3>
+    <h3>Sonstige Fragen</h3>
+
+    <h4>Eltern-Teilzeit, während der Partner/die Partnerin Sonderleistung 1 bezieht?</h4>
     <p>
       Nach Infos aus meinen Beratungsgesprächen, zählt das Beziehen von Sonderleistung 1 nicht als
       "echte" Karenz. Der Partner/die Partnerin kann somit schon das Recht auf <a
         href="/elternteilzeit-20-20/"
         class="underline">Eltern-Teilzeit</a
       >
-      nutzen, auch wenn der andere/die andere noch Sonderleistung 1 bezieht. Bitte vorher nochmal bei
-      Arbeiterkammer nachfragen.
+      nutzen, auch wenn der andere/die andere noch Sonderleistung 1 bezieht. Bitte vorher bei Arbeiterkammer
+      oder ÖGK nachfragen.
     </p>
   </ContentPage>
 </Layout>
