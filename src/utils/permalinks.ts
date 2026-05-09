@@ -4,11 +4,11 @@ import { trim } from '~/utils/utils';
 
 // Site config (previously from src/config.yaml via astrowind:config).
 // Must agree with astro.config.ts `site` + `trailingSlash`.
-const SITE = {
+const SITE: { site: string; base: string; trailingSlash: boolean } = {
   site: 'https://karenz-wizard.at',
   base: '/',
   trailingSlash: true,
-} as const;
+};
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
 const createPath = (...params: string[]) => {
