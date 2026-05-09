@@ -1,0 +1,25 @@
+---
+// Blue-bordered "Das Wichtigste" callout box shown near the top of every
+// step subpage. Bullet points are passed in as plain strings (HTML allowed
+// via set:html) so each page can list its own key facts.
+type Props = {
+  items: string[];
+  title?: string;
+};
+
+const { items, title = 'Das Wichtigste' } = Astro.props;
+---
+
+<aside
+  class="not-prose my-6 rounded-2xl border-2 border-blue-400 bg-blue-50/40 p-4 sm:p-6"
+  aria-label={title}
+>
+  <p class="mb-3 text-xs font-bold uppercase tracking-wide text-blue-700">{title}</p>
+  <ul class="list-disc space-y-2 pl-5">
+    {
+      items.map((item) => (
+        <li class="text-sm leading-relaxed text-slate-800 sm:text-base" set:html={item} />
+      ))
+    }
+  </ul>
+</aside>

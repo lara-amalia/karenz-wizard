@@ -1,244 +1,72 @@
 ---
 // /schritte-im-ueberblick/ — "Die Schritte im Überblick"
-// Linear vertical stack of numbered step cards (Option C from the
-// CTA streamlining discussion). Top-level steps 1–4, with 3.1 / 3.2
-// indented under step 3 to preserve the parent/variant relationship.
+// Linear vertical stack of numbered step cards. Top-level steps 1–9, with
+// 3.1 / 3.2 / 3.3 indented under step 3 to preserve the parent/variant
+// relationship.
 //
-// SEO title comes from seo.ts via pathname lookup.
+// Title, href and teaser come from src/data/steps.ts (single source of
+// truth, also used as the first paragraph on each step subpage). Embed,
+// kicker, cta-label and variant remain local to this page.
 import Layout from '~/layouts/Layout.astro';
 import PrivacyEmbed from '~/components/blog/PrivacyEmbed.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+import StepsTOC from '~/components/widgets/StepsTOC.astro';
+import { steps } from '~/data/steps';
 
-type StepCta = {
-  label: string;
-  href: string;
-};
+// Titles in steps.ts carry a leading number prefix (e.g. "1. " or "3.1 ") so
+// the prefix shows on each subpage's H1. The overview cards already render
+// the number in a separate badge, so strip it here to avoid duplication.
+const stripNumberPrefix = (title: string) => title.replace(/^\d+(\.\d+)?\.?\s+/, '');
 
-type StepEmbed = {
-  provider: 'youtube' | 'twitter' | 'mastodon' | 'vimeo' | 'other';
-  embedUrl: string;
-  title: string;
-  directUrl: string;
-};
-
-type Step = {
-  number: string; // "1", "2", "3", "3.1", "3.2", "4"
-  kicker?: string; // e.g. "Schritt 1" — displayed above title
-  title: string;
-  description: string[];
-  cta: StepCta;
-  variant?: 'primary' | 'sub'; // 'sub' = indented sub-step (3.1/3.2)
-  embed?: StepEmbed;
-};
-
-const steps: Step[] = [
-  {
-    number: '1',
-    kicker: 'Schritt 1: Papamonat & FZB',
-    title: 'Der erste (Papa-)Monat nach Geburt steht dir immer zu',
-    description: [
-      'Die gute Nachricht: Du hast in Österreich das Recht auf Freistellung im ersten Monat nach der Geburt. So kannst du den ersten Monat daheim miterleben und im Wochenbett voll unterstützen.',
-      'Die "schlechte" Nachricht: Anspruch auf die staatliche Förderung für den Papamonat, den Familienzeitbonus, hast du allerdings nicht automatisch. Die Förderung ist an die 182-Tage-Regel geknüpft (= ca. 6 Monat durchgehende Arbeit vor Geburt / kein AMS-Bezug o.ä. in dieser Zeit).',
-      'Wichtig: Das Recht auf Freistellung bei deinem Arbeitgeber hast du immer - den Monat musst du halt selber finanzieren, falls du keinen Anspruch auf staatliche Förderung (Familienzeitbonus) hast.',
-      'Tipp: Die Papamonat-Freistellung gilt erst ab Entlassung von Mutter und Kind aus dem Krankenhaus, heb dir also ein paar Urlaubstage für die Krankenhauszeit auf.',
-    ],
-    cta: { label: 'Mehr Infos & Familienzeitbonus-Anspruch prüfen', href: '/fzb-anspruch/' },
-    embed: {
-      provider: 'youtube',
-      embedUrl: 'https://www.youtube-nocookie.com/embed/IMUBAZGAER8',
-      title: 'Papamonat in Österreich | Meldung, Antrag & Geld (AK/YouTube)',
-      directUrl: 'https://www.youtube.com/watch?v=IMUBAZGAER8',
-    },
-  },
-  {
-    number: '2',
-    kicker: 'Schritt 2: Die finanzielle Basis',
-    title: 'Hat mindestens ein Elternteil Anspruch auf einkommens&shy;abhängiges KBG?',
-    description: [
-      'Bevor ihr in die Detailplanung geht, müsst ihr klären ob mindestens ein Elternteil eaKBG-Anspruch hat. In Österreich gibt es zwei Fördermodelle:',
-      'Zum einen das einkommens&shy;abhängige Kinderbetreuungs&shy;geld (eaKBG) - aber nur wenn man vorher 182 Tage (ca. 6 Monate) durchgehend gearbeitet hat. Es beträgt ca. 80% des letzten Gehalts, maximal 14 Monate lang ab Geburt (wenn der Vater mindestens 2 Monate in Karenz geht).',
-      'Und zum anderen gibt es das pauschale Kinderbetreuungsgeld-Konto, offen für alle.',
-      'Als Paar könnt ihr nur eins der Modelle nutzen.',
-      'Grobe Faustregel: Wenn ihr eaKBG-Anspruch habt, dann bekommt ihr in den meisten Fällen mehr Geld bei diesem Fördermodell raus - im Gegensatz zum pauschalen KBG-Konto. Am Ende kommt es aber auf eure individuelle Situation (und euer Gehalt) an, was sich mehr lohnt. Lasst euch hier unbedingt kostenfrei bei AK oder ÖGK beraten!',
-      'Die wichtigste Frage ist also zuerst: Hat mindestens einer von euch Anspruch auf das einkommens&shy;abhängige Kinderbetreuungsgeld (eaKBG)?',
-      'Hierfür muss die 182-Tage-Regel geprüft werden, d.h. ob ca. 6 Monate durchgehend gearbeitet wurde, kein Arbeitslosengeld bezogen wurde, etc.',
-      "Hat nur ein Elternteil Anspruch, bekommt der andere in seiner Karenzzeit den Basissatz Sonder&shy;leistung 1. Dieser beträgt aktuell ca. 1'200€ / Monat.",
-      'Falls gar keiner von euch Anspruch hat, bleibt nur das pauschale Kinderbetreuungs&shy;geld-Konto.',
-      'Hier erfahren, wie man den Anspruch prüft und welcher Stichtag für die 182-Tage-Regel gilt:',
-    ],
-    cta: { label: 'eaKBG-Anspruch jetzt prüfen', href: '/eakbg-anspruch/' },
-    embed: {
-      provider: 'youtube',
-      embedUrl: 'https://www.youtube-nocookie.com/embed/JdoIhtTYxh8',
-      title: 'Kinderbetreuungsgeld in Österreich | Zwei Modelle erklärt',
-      directUrl: 'https://www.youtube.com/watch?v=JdoIhtTYxh8',
-    },
-  },
-  {
-    number: '3',
-    kicker: 'Schritt 3: Die Zeit und Aufteilung',
-    title: 'Wie lange wollt ihr zu Hause bleiben? Wie wollt ihr die Karenzmonate aufteilen?',
-    description: [
-      'Staatliche Förderung und Recht auf Karenz sind zwei verschiedene Paar Schuhe.',
-      'In Österreich habt ihr gegenüber eurem Arbeitgeber Anspruch auf zwei Jahre Karenz-Freistellung, jedoch nicht auf Bezahlung.',
-      'Das gute einkommens&shy;abhängiges Kinderbetreuungs&shy;geld, welches ca. 80% vom Einkommen beträgt, wird nur maximal 14 Monate lang vom Staat an euch ausgezahlt. Die 14 Monate gelten ab Geburt. Bedingung für die vollen 14 Monate ist, dass der Vater mindestens 2 Monate Karenz nimmt.',
-      'Wie ihr die 14 Monate aufteilt, könnt ihr relativ flexibel selber entscheiden.',
-      'Ihr könnt auch einen Monat gemeinsam eaKBG beziehen und in dieser Zeit gemeinsam daheim sein (oder reisen). Einige Vorgaben gibt es natürlich dennoch zu beachten (siehe AK-Video).',
-      'Natürlich stellt sich hier schnell eine schwierige Frage: Möchte die Mutter beispielsweise 12 Monate in Karenz gehen, dann wird es für den Vater knapp. Staatliche Förderung gibt es nur mehr für 2 Monate. Die gute Nachricht: Das Recht auf Karenz-Frei&shy;stellung beim Arbeitgeber hast du bis zum 2. Geburtstag des Kindes. Du kannst also deutlich länger in Karenz gehen! (falls finanziell leistbar)',
-      'Welche Optionen es nach den 14 Monaten gibt, seht ihr in den Schritten weiter unten. Beispielsweise das Verlängern der Väterkarenz mit einer "unbezahlten Karenz" - oder das Nutzen der Eltern-Teilzeit im 20h/20h-Modell. Bei diesem wechselt ihr euch beispielsweise mittags ab: Die Mutter arbeitet von 8 bis 12 Uhr, der Vater von 13 bis 17 Uhr. Bei beiden Alternativen müsst ihr natürlich mit einem Gehalt auskommen bzw. über Ersparnisse verfügen.',
-      'Nutzt den interaktiven eaKBG-Planer, um verschiedene Aufteilungsmodelle auszuprobieren:',
-    ],
-    cta: { label: 'Eure eaKBG-Karenz interaktiv planen', href: '/eakbg-planer/' },
-    embed: {
-      provider: 'youtube',
-      embedUrl: 'https://www.youtube-nocookie.com/embed/_68qceI3lLU',
-      title: 'Teilung Karenz und Kinderbetreuungsgeld in Österreich',
-      directUrl: 'https://www.youtube.com/watch?v=_68qceI3lLU',
-    },
-  },
-  {
-    number: '3.1',
-    kicker: 'Option zu Schritt 3',
-    title: 'Unbezahlte Karenz: Länger daheim bleiben',
-    description: [
-      'Eine unbezahlte Karenz ist ebenso möglich um die Karenz zu verlängern, bis zum 2. Lebensjahr des Kindes habt ihr ja rechtlichen Anspruch auf Karenz (= unbezahlte Freistellung). Den Lebensunterhalt müsst ihr dann natürlich aus Ersparnissen oder über das Einkommen des/der Partner/in finanzieren in diesen Monaten.',
-      'Krankenversichern könnt ihr euch über die ÖGK Mitversicherung bei eurer Partnerin',
-    ],
-    cta: { label: 'Alles zur unbezahlten Karenz', href: '/unbezahlte-karenz/' },
-    variant: 'sub',
-  },
-  {
-    number: '3.2',
-    kicker: 'Option zu Schritt 3',
-    title: 'Das 20h/20h-Modell: Gemeinsam anpacken mit Eltern-Teilzeit',
-    description: [
-      'Gleichberechtigte Partnerschaft und Equal Care kann man auch so gestalten, dass beide Elternteile nach den 14 Monaten eaKBG wieder in den Job einsteigen — aber einer oder beide mit reduzierter Stundenanzahl. Im 20h/20h-Modell wechselt ihr euch beispielsweise mittags ab: Die Mutter arbeitet von 8 bis 12 Uhr, der Vater von 13 bis 17 Uhr.',
-      'Dieses Modell wird leider in Medienberichten rund um die Aufteilung der Karenz oft nicht beleuchtet - doch gerade hiermit können Väter ebenso echte Verantwortung tragen.',
-      'Gut zu wissen: Falls ihr Anspruch auf Eltern-Teilzeit habt, seid ihr auch einige Jahre sehr gut vor Kündigungen geschützt.',
-      'Die "schlechte" Nachricht: Das Recht auf Eltern-Teilzeit ist an bestimmte Vorraussetzungen geknüpft.',
-      'Ihr könnt jedoch natürlich auch mit eurem Arbeitgeber eine freiwillige Teilzeit vereinbaren (ohne Kündigungsschutz).',
-      'Erfahrt hier, ob ihr Anspruch habt:',
-    ],
-    cta: { label: 'Mehr über Eltern-Teilzeit erfahren', href: '/elternteilzeit-20-20/' },
-    embed: {
-      provider: 'youtube',
-      embedUrl: 'https://www.youtube-nocookie.com/embed/sepdrZagF98',
-      title: 'Elternteilzeit in Österreich (AK/YouTube)',
-      directUrl: 'https://www.youtube.com/watch?v=sepdrZagF98',
-    },
-    variant: 'sub',
-  },
-  {
-    number: '3.3',
-    kicker: 'Arbeitssuchend & "Karenz"',
-    title: 'Arbeitssuchend & "Karenz"?',
-    description: [
-      'Du bist gerade arbeitssuchend/arbeitslos?',
-      "Falls ein Elternteil Anspruch auf einkommensabhängiges Kinderbetreuungsgeld hat, dann kann das andere (arbeitslose) Elternteil auch ohne Job den Basissatz Sonderleistung 1 beziehen. Damit bekommt man zumindest ca. 1'200€ / Monat. Hierfür beantragt man einfach einkommensabhängiges Kinderbetreuungsgeld und bekommt dann nach der Prüfung die Info und den Antrag auf Sonderleistung 1 von der ÖGK zugeschickt.",
-      'Wichtig: Während du Sonderleistung 1 bekommst, musst du dich vom AMS Arbeitslosengeld abmelden. Ein gleichzeitiger Bezug ist nicht möglich.',
-      'Auch eine gute Nachricht bzgl. Arbeitslosengeld: Mit Kind hast du Anspruch auf Familienzuschlag.',
-      'Außerdem musst du nur mindestens 20h/Woche für eine neue Arbeitsstelle zur Verfügung stehen, falls ihr zukünftig das 20h/20h-Modell nutzen wollt.',
-      'Eine "AMS-Karenz" ist somit natürlich ebenso eine Möglichkeit, für dein Kind zu sorgen während der Suche nach einer neuen (familienfreundlichen) Arbeitststelle.',
-    ],
-    cta: { label: 'Mehr zu Arbeitssuchend & "Karenz"', href: '/arbeitssuchend-karenz/' },
-
-    variant: 'sub',
-  },
-  // TODO: Add "Urlaub nehmen für Karenz?"
-  {
-    number: '4',
-    kicker: 'Schritt 4: Eure Planung absichern',
-    title: 'Wichtig: Eure Planung kostenfrei überprüfen lassen - bevor ihr den Antrag abschickt',
-    description: [
-      'Ihr habt die grobe Planung gemacht? Oder wollt euch jetzt erstmal zu Beginn informieren?',
-      'Die Arbeiterkammern wie auch ÖGK bieten kostenfreie, individuellen Beratungen an. Nutzt diese unbedingt bevor ihr den Kinderbetreuungs&shy;geld-Antrag abschickt, sodass euch kein Geld / Förderung verloren geht.',
-      'Die Arbeiterkammern der jeweiligen Bundesländer bieten zudem regelmäßige Informations&shy;veranstaltungen und Webinare an, wo alles erklärt wird. Falls ihr nichts auf Anhieb findet, fragt am besten einfach kurz bei eurer Arbeiterkammer nach.',
-    ],
-    cta: { label: 'Beratung bei der AK & ÖGK', href: '/planung-ueberpruefen/' },
-  },
-  {
-    number: '5',
-    kicker: 'Schritt 5: Die (eigentlich) große Entscheidung',
-    title: 'Ab wann in Fremdbetreuung / Kindergarten?',
-    description: [
-      'Wann ist der richtige Zeitpunkt für den Kindergarten oder eine Tagesmutter/Tagesvater-Gruppe? Das ist eine sehr emotionale Frage und zudem in jedem Bundesland völlig unterschiedlich geregelt - beispielsweise ab welchem Alter Kinder überhaupt aufgenommen werden. Zudem beginnt die Kindergarten-Saison in Wien beispielsweise regulär im Herbst, es gibt also auch zeitliche Fristen zu beachten.',
-      'Von dieser Frage hängt natürlich aber ab, wie viel Stunde ihr jeweils arbeiten könnt und wie lang ihr die Karenz (oder Modelle wie Eltern-Teilzeit) plant.',
-      'Ich habe ein paar Links gesammelt, die Entscheidung trefft ihr jedoch ganz allein - und jedes Kind ist individuell und anders entwickelt:',
-    ],
-    cta: { label: 'Mehr zur Frage der Fremdbetreuung', href: '/ab-wann-fremdbetreuung/' },
-  },
-  {
-    number: '6',
-    kicker: 'Schritt 6',
-    title: 'Kinderbetreuungsgeld-Antrag stellen',
-    description: [
-      'Ihr habt alles durchdacht und habt euch beraten lassen? Super, dann könnt ihr endlich den Kinderbetreuungsgeld-Antrag stellen.',
-      'Keine Sorge, der Antrag hat in Österreich tollerweise nur 4 Seiten, man kann ihn sich vorher als PDF herunterladen und anschauen.',
-    ],
-    cta: { label: 'Mehr über Antrag stellen', href: '/antrag-stellen/' },
-  },
-  {
-    number: '7',
-    kicker: 'Schritt 7: Keine Frist verpassen',
-    title: 'Registriert euch beim AK Elternkalender',
-    description: [
-      'In Zukunft wird es einige Fristen geben, die ihr beachten müsst. Damit euch keine durchrutscht, hilft der Elternkalender der Arbeiterkammer.',
-      'Registriert euch am besten noch heute! :)',
-    ],
-    cta: {
-      label: 'Jetzt beim Elternkalender registrieren',
-      href: '/ak-elternkalender/',
-    },
-  },
-  // TODO: add own subpage
-  {
-    number: '8',
-    kicker: 'Schritt 8',
-    title: 'Partnerschaftsbonus',
-    description: [
-      '„Haben die Eltern das Kinderbetreuungsgeld zu annähernd gleichen Teilen (50:50 bis 60:40) und mindestens im Ausmaß von je 124 Tagen rechtmäßig und tatsächlich bezogen, so gebührt jedem Elternteil auf Antrag nach Ablauf der höchstmöglichen Gesamtanspruchsdauer ein Partnerschaftsbonus.“ (Quelle: ÖGK, April 2026). Aktuell beträgt der Bonus 500€ pro Person.',
-    ],
-    cta: {
-      label: 'Mehr erfahren',
-      href: '/partnerschaftsbonus/',
-    },
-  },
-  {
-    number: '9',
-    kicker: 'Schritt 9',
-    title: 'Pensionssplitting',
-    description: ['Redet über Pensionssplitting.'],
-    cta: { label: 'Mehr über Pensionssplitting', href: '/pensionssplitting/' },
-  },
-];
+const cards = steps.map((s) => ({
+  number: s.number,
+  title: stripNumberPrefix(s.title),
+  href: s.href,
+  // CTA defaults to the subpage with the after-teaser anchor; can be
+  // overridden per step via stepCards.ctaLink.
+  ctaHref: s.stepCards?.ctaLink ?? `${s.href}#inhalt`,
+  teaser: s.teaser,
+  embed: s.moreInformation?.embed?.[0],
+  kicker: s.stepCards?.kicker,
+  ctaLabel: s.stepCards?.ctaLabel ?? 'Mehr erfahren',
+  variant: s.stepCards?.variant,
+  openInNewTab: s.stepCards?.openInNewTab ?? false,
+}));
 ---
 
 <Layout>
-  <ContentPage title="Die Schritte im Überblick" align="center" prose={false}>
+  <ContentPage
+    title="Die Schritte im Überblick"
+    align="center"
+    prose={false}
+    showDisclaimer={false}
+  >
     <p slot="subtitle" class="text-base leading-relaxed text-slate-600">
-      Diese Seite ist eine <strong>„Hilfe zur Selbsthilfe"</strong> für werdende Väter. Du kannst hier
-      ein Gefühl für deine Möglich&shy;keiten bekommen, für mehr als 2 Monate Karenz - oder um anderweitig
-      Verantwortung zu übernehmen.<br /><br />
-      Diese Übersicht dauert ca. 5 Minuten — lies erst alle Schritte, dann tauche in die Details ein.
+      Diese Seite ist eine <strong>„Hilfe zur Selbsthilfe"</strong> für Neu-Väter. Du kannst hier ein
+      Gefühl für deine Möglich&shy;keiten bekommen, um mehr als nur 2 Monate in Karenz zu gehen. Du findest
+      hier auch Informationen, wie du auf anderen Wegen für dein Kind da sein kannst in den ersten Jahren,
+      bspw. durch Eltern-Teilzeit.
     </p>
+
+    <!-- <StepsTOC /> -->
 
     <ol class="mt-10 list-none space-y-6 p-0" aria-label="Planungsschritte">
       {
-        steps.map((step) => (
-          <li class={step.variant === 'sub' ? 'ml-6 sm:ml-12' : ''}>
-            <article
+        cards.map((step) => (
+          <li
+            id={`step-${step.number}`}
+            data-step-target={step.number}
+            class={`scroll-mt-24 ${step.variant === 'sub' ? 'ml-6 sm:ml-12' : ''}`}
+          >
+            <details
               class={
-                'flex flex-col gap-4 overflow-hidden rounded-3xl border bg-white px-6 py-6 shadow-sm transition-shadow duration-200 focus-within:shadow-lg hover:shadow-lg sm:px-8 sm:py-7 ' +
+                'group overflow-hidden rounded-3xl border bg-white shadow-sm transition-shadow duration-200 focus-within:shadow-lg hover:shadow-lg ' +
                 (step.variant === 'sub' ? 'border-slate-200/80' : 'border-slate-200/60')
               }
             >
-              <div class="flex items-start gap-4">
+              <summary class="flex cursor-pointer list-none items-start gap-4 px-6 py-6 sm:px-8 sm:py-7 [&::-webkit-details-marker]:hidden">
                 <span
                   class={
-                    // items-start on the row + leading-none on the numeral means
-                    // its top edge aligns with the top of the kicker, instead of
-                    // baseline-matching a huge number to a tiny kicker (which
-                    // visually lifted the numeral ~20px above the label).
                     'shrink-0 font-heading font-bold leading-none tabular-nums ' +
                     (step.variant === 'sub'
                       ? 'text-xl text-slate-400'
@@ -260,45 +88,62 @@ const steps: Step[] = [
                       'mt-1 font-heading font-bold leading-tight text-slate-900 ' +
                       (step.variant === 'sub' ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl')
                     }
-                  >
-                    <a href={step.cta.href} class="hover:underline" set:html={step.title} />
-                  </h2>
+                    set:html={step.title}
+                  />
                 </div>
-              </div>
+                <span
+                  aria-hidden="true"
+                  class="ml-2 mt-1 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180"
+                >
+                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </summary>
 
-              <div class="space-y-3">
-                {step.description.map((paragraph) => (
+              <div class="flex flex-col gap-4 px-6 pb-6 sm:px-8 sm:pb-7">
+                {(Array.isArray(step.teaser) ? step.teaser : [step.teaser]).map((p, i) => (
                   <p
-                    class="text-sm leading-relaxed text-slate-600 sm:text-base"
-                    set:html={paragraph}
+                    class={
+                      i === 0
+                        ? 'lead leading-relaxed'
+                        : 'text-sm leading-relaxed text-slate-600 sm:text-base'
+                    }
+                    set:html={p}
                   />
                 ))}
-              </div>
 
-              <div>
-                <a
-                  href={step.cta.href}
-                  class={
-                    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition sm:text-base ' +
-                    (step.variant === 'sub'
-                      ? 'border border-[#C94D54] text-[#C94D54] hover:bg-[#C94D54]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]'
-                      : 'bg-[#C94D54] text-white hover:bg-[#b64048] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]')
-                  }
-                >
-                  {step.cta.label}
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
+                <div>
+                  <a
+                    href={step.ctaHref}
+                    target={step.openInNewTab ? '_blank' : undefined}
+                    rel={step.openInNewTab ? 'noopener noreferrer' : undefined}
+                    class={
+                      'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition sm:text-base ' +
+                      (step.variant === 'sub'
+                        ? 'border border-[#C94D54] text-[#C94D54] hover:bg-[#C94D54]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]'
+                        : 'bg-[#C94D54] text-white hover:bg-[#b64048] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]')
+                    }
+                  >
+                    {step.ctaLabel}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
 
-              {step.embed && (
-                <PrivacyEmbed
-                  provider={step.embed.provider}
-                  embedUrl={step.embed.embedUrl}
-                  title={step.embed.title}
-                  directUrl={step.embed.directUrl}
-                />
-              )}
-            </article>
+                {step.embed && (
+                  <PrivacyEmbed
+                    provider={step.embed.provider}
+                    embedUrl={step.embed.embedUrl}
+                    title={step.embed.title}
+                    directUrl={step.embed.directUrl}
+                  />
+                )}
+              </div>
+            </details>
           </li>
         ))
       }

@@ -2,24 +2,28 @@
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
 import NextStep from '~/components/widgets/NextStep.astro';
+import Teaser from '~/components/widgets/Teaser.astro';
+import MoreInformation from '~/components/widgets/MoreInformation.astro';
+import { getStep } from '~/data/steps';
+
+const step = getStep('8')!;
 ---
 
 <Layout>
-  <ContentPage title="Partnerschaftsbonus" step={{ number: '8', total: 9 }}>
-    <p>🚧 Inhalt in Arbeit 🚧</p>
-    <blockquote>
-      „Haben die Eltern das Kinderbetreuungsgeld zu annähernd gleichen Teilen (50:50 bis 60:40) und
-      mindestens im Ausmaß von je 124 Tagen rechtmäßig und tatsächlich bezogen, so gebührt jedem
-      Elternteil auf Antrag nach Ablauf der höchstmöglichen Gesamtanspruchsdauer ein
-      Partnerschaftsbonus.“
-    </blockquote>
-    <p>Aktuell beträgt der Bonus 500€ pro Person (einmalig)</p>
+  <ContentPage title={step.title} step={{ number: step.number }}>
+    <Teaser step={step} />
     <p>
-      Alle Infos zur Antragsstellung: <a
-        href="https://www.gesundheitskasse.at/cdscontent/?contentid=10007.879642&portal=oegkportal"
-        >gesundheitskasse.at</a
+      <i>
+        Kritischer Kommentar: Der Bonus ist sicherlich ein gutgemeinter Anreiz, bezieht sich meines
+        Wissens aber nur auf das Kinderbetreuungsgeld. Somit fallen unbezahlte Karenzmonate,
+        Betreuung während Arbeitslosigkeit o.ä. aus der Rechnung heraus. Beim Einkommensabhängigen
+        mit nur 14 Monaten Maximalzeit, ist es zudem gerade für Neu-Eltern schwierig, sich direkt
+        ohne Erfahrung für eine 7/7-Monate-Aufteilung zu entscheiden. Bei dieser würde die
+        Neu-Mutter nach 7 Monaten in den Beruf zurückkehren müssen - die Statistik zeigt, dass viele
+        Eltern sich für 12/2 entscheiden.</i
       >
     </p>
   </ContentPage>
-  <NextStep number="9" label="Pensionssplitting" href="/pensionssplitting/" />
+  <MoreInformation step={step} />
+  <NextStep step={step} />
 </Layout>

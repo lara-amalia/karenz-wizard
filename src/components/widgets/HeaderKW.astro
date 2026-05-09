@@ -12,6 +12,7 @@
 // (hamburger toggle, preview-banner dismiss, Escape-to-close, scroll lock,
 // dropdown open/close + outside-click).
 import logo from '~/lib/assets/logo.png';
+import { steps } from '~/data/steps';
 
 // Dev-only features. import.meta.env.DEV is true during `astro dev`,
 // false during `astro build`. Feature stays accessible by URL (page is
@@ -35,69 +36,29 @@ type NavItem = NavLink | NavGroup;
 
 const isGroup = (item: NavItem): item is NavGroup => 'children' in item;
 
+// Step entries are sourced from src/data/steps.ts so menu labels stay in
+// sync with the page H1s. The "Die Schritte im Überblick" entry is the
+// fixed top-level link of this group.
+const stepChildren: NavLink[] = [
+  {
+    label: 'Die Schritte im Überblick',
+    href: '/schritte-im-ueberblick/',
+    matchPath: '/schritte-im-ueberblick',
+  },
+  ...steps.map((s) => ({
+    // Strip soft-hyphen entities so the menu label stays compact; titles
+    // already carry the "1." / "3.1" prefix from steps.ts.
+    label: s.title.replace(/&shy;/g, ''),
+    href: s.href,
+    matchPath: s.href.replace(/\/$/, ''),
+  })),
+];
+
 const navItems: NavItem[] = [
   {
     label: 'Ersten Jahre nach Geburt planen',
     id: 'planner',
-    children: [
-      {
-        label: 'Die Schritte im Überblick',
-        href: '/schritte-im-ueberblick/',
-        matchPath: '/schritte-im-ueberblick',
-      },
-      {
-        label: '1. Papamonat & Geld-Anspruch',
-        href: '/fzb-anspruch/',
-        matchPath: '/fzb-anspruch',
-      },
-      { label: '2. eaKBG Anspruch prüfen', href: '/eakbg-anspruch/', matchPath: '/eakbg-anspruch' },
-      { label: '3. eaKBG Planer', href: '/eakbg-planer/', matchPath: '/eakbg-planer' },
-      {
-        label: '3.1 Option: Unbezahlte Karenz',
-        href: '/unbezahlte-karenz/',
-        matchPath: '/unbezahlte-karenz',
-      },
-      {
-        label: '3.2 Option: Eltern-Teilzeit mit 20h/20h',
-        href: '/elternteilzeit-20-20/',
-        matchPath: '/elternteilzeit-20-20',
-      },
-      {
-        label: '3.3 Arbeitssuchend & "Karenz"?',
-        href: '/arbeitssuchend-karenz/',
-        matchPath: '/arbeitssuchend-karenz',
-      },
-      {
-        label: '4. Planung kostenfrei überprüfen vor Antrag ⚠️',
-        href: '/planung-ueberpruefen/',
-        matchPath: '/planung-ueberpruefen',
-      },
-      {
-        label: '5. Ab wann in Fremdbetreuung / Kindergarten?',
-        href: '/ab-wann-fremdbetreuung/',
-        matchPath: '/ab-wann-fremdbetreuung',
-      },
-      {
-        label: '6. Kinderbetreuungsgeld-Antrag stellen',
-        href: '/antrag-stellen/',
-        matchPath: '/antrag-stellen',
-      },
-      {
-        label: '7. Beim AK Elternkalender registrieren',
-        href: '/ak-elternkalender/',
-        matchPath: '/ak-elternkalender',
-      },
-      {
-        label: '8. Partnerschaftsbonus',
-        href: '/partnerschaftsbonus/',
-        matchPath: '/partnerschaftsbonus',
-      },
-      {
-        label: '8. Pensionssplitting',
-        href: '/pensionssplitting/',
-        matchPath: '/pensionssplitting',
-      },
-    ],
+    children: stepChildren,
   },
   {
     label: 'Beratungen',
@@ -106,12 +67,12 @@ const navItems: NavItem[] = [
       { label: 'AK-Beratung', href: '/ak-beratung/', matchPath: '/ak-beratung' },
       { label: 'ÖGK-Beratung', href: '/oegk-beratung/', matchPath: '/oegk-beratung' },
       {
-        label: 'Sonstige Beratungen',
+        label: 'Sonstige Beratungen & Communities',
         href: '/sonstige-beratungen/',
         matchPath: '/sonstige-beratungen',
       },
       {
-        label: 'Feministische Beratung?',
+        label: 'Feministische Beratung - Fehlanzeige?!',
         href: '/feministische-beratung/',
         matchPath: '/feministische-beratung',
       },

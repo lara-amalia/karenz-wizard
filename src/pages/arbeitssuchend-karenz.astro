@@ -2,29 +2,53 @@
 import Layout from '~/layouts/Layout.astro';
 import NextStep from '~/components/widgets/NextStep.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+import TodoIntegrate from '~/components/widgets/TodoIntegrate.astro';
+import KeyFacts from '~/components/widgets/KeyFacts.astro';
+import Teaser from '~/components/widgets/Teaser.astro';
+import MoreInformation from '~/components/widgets/MoreInformation.astro';
+import { getStep } from '~/data/steps';
+
+const step = getStep('5.4')!;
+const keyFacts = ['Punkt 1 - <strong>fett markierter Text</strong>', 'Punkt 2', 'Punkt 3'];
 ---
 
 <Layout>
-  <ContentPage title='Arbeitssuchend & "Karenz"?' step={{ number: '3.3', total: 9 }}>
-    <p>🚧 Inhalt in Arbeit 🚧</p>
-    <p>Du bist gerade arbeitssuchend/arbeitslos?</p>
+  <ContentPage title={step.title} step={{ number: step.number }}>
+    <Teaser step={step} />
+    <!-- <KeyFacts items={keyFacts} /> -->
+
+    <h3>
+      Ohne Job - trotzdem Anspruch auf Sonderleistung 1, wenn Partner/in Anspruch auf
+      einkommensabhängiges Kinderbetreuungsgeld hat
+    </h3>
     <p>
       Falls dein/e Partner/in Anspruch auf einkommens&shy;abhängiges Kinder&shy;betreuungs&shy;geld
       hat, dann kannst du den Basissatz <a href="/sonderleistung-1/">Sonderleistung 1</a>
-      beziehen. Damit bekommt man zumindest ca. 1.100 € / Monat.
+      beziehen. Damit bekommt man zumindest ca. 1.200 € / Monat und ist krankenversichert.
     </p>
     <p>
-      <strong>Wichtig:</strong> Während du Sonderleistung 1 bekommst, musst du dich vom AMS Arbeitslosengeld
+      Während du Sonderleistung 1 bekommst, musst du dich vom AMS Arbeitslosengeld für diese Zeit
       abmelden. Ein gleichzeitiger Bezug ist nicht möglich.
     </p>
+    <p>Siehe <a href="/sonderleistung-1">Sonderleistung 1</a> für alle Infos.</p>
+
+    <h3>Familienzuschlag beim Arbeitslosengeld</h3>
     <p>
-      Auch eine gute Nachricht bzgl. Arbeitslosengeld: Mit Kind hast du Anspruch auf
-      Familienzuschlag.
+      Siehe <a
+        href="https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitslosigkeit/Arbeitslosengeld.html#heading_Familienzuschlag"
+        >Familienzuschlag beim Arbeitslosengeld</a
+      > (arbeiterkammer.at)
     </p>
+    <h3>Reisen ins Ausland - abmelden</h3>
+    <p>
+      Obacht bei Familien-Urlauben/Ausflügen ins Ausland, hier muss man sich für diese Zeit vom
+      Arbeitslosengeld abmelden. Siehe <a
+        href="https://www.arbeiterkammer.at/beratung/arbeitundrecht/Arbeitslosigkeit/Arbeitslos_und_Urlaub.html"
+        >Arbeitslos & Urlaub</a
+      > auf arbeiterkammer.at
+    </p>
+    <p>Alles Gute für die Jobsuche!</p>
   </ContentPage>
-  <NextStep
-    number="4"
-    label="Planung kostenfrei überprüfen vor Antrag"
-    href="/planung-ueberpruefen/"
-  />
+  <MoreInformation step={step} />
+  <NextStep step={step} />
 </Layout>

@@ -1,0 +1,32 @@
+---
+// Orange-bordered "TODO: integrate into this page" box.
+// Used to dump card text moved over from /schritte-im-ueberblick/ into the
+// corresponding subpage so the author can later weave it into the page copy.
+//
+// Only rendered in dev mode (`astro dev`). In production builds
+// (`astro build`) it disappears entirely so unfinished TODOs never ship.
+type Props = {
+  paragraphs: string[];
+};
+
+const { paragraphs } = Astro.props;
+const showTodo = import.meta.env.DEV;
+---
+
+{
+  showTodo && (
+    <div
+      class="not-prose my-6 rounded-2xl border-2 border-orange-400 bg-orange-50/40 p-4 sm:p-6"
+      data-todo-integrate
+    >
+      <p class="mb-3 text-xs font-bold uppercase tracking-wide text-orange-700">
+        TODO: integrate into this page
+      </p>
+      <div class="space-y-3">
+        {paragraphs.map((p) => (
+          <p class="text-sm leading-relaxed text-slate-700 sm:text-base" set:html={p} />
+        ))}
+      </div>
+    </div>
+  )
+}

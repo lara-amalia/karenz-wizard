@@ -5,15 +5,39 @@ import Layout from '~/layouts/Layout.astro';
 import EligibilityCalculatorEaKbg from '~/lib/components/EligibilityCalculatorEaKbg.svelte';
 import NextStep from '~/components/widgets/NextStep.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+import TodoIntegrate from '~/components/widgets/TodoIntegrate.astro';
+import KeyFacts from '~/components/widgets/KeyFacts.astro';
+import Teaser from '~/components/widgets/Teaser.astro';
+import MoreInformation from '~/components/widgets/MoreInformation.astro';
+import { getStep } from '~/data/steps';
+
+const step = getStep('4')!;
+// TODO: add them to eakbg planer as well
+const keyFacts = [
+  'In Österreich gibt es zwei Fördermodelle: <strong>Einkommensabhängiges Kinderbetreuungsgeld (eaKBG)</strong> für Erwerbstätige und das <strong>pauschale Kinderbetreuungsgeld-Konto</strong>, was allen offen steht. Als Paar muss man sich für eins entscheiden.',
+  'Das Einkommensabhängige ist an die <strong>182-Tage-Regel</strong> geknüpft, siehe unten.',
+  '<strong>Grobe Faustregel: Falls ihr Anspruch auf das einkommensabhängige Kinderbetreuungsgeld habt, bekommt ihr in den meisten Fällen deutlich mehr Geld raus.</strong> Während der Gesamttopf beim pauschalen Kinderbetreungsgeld-Konto für beide Elternteile bei ca. 18.760 € gedeckelt ist (maximal 41,14 € pro Tag), könnt ihr beim eaKBG insgesamt bis zu ca. 34.130 € an Transferleistungen abholen, da der Höchstsatz hier bei stolzen 80,12 € pro Tag liegt (abhängig vom Gehalt).',
+  'Daher lohnt es sich finanziell oft mehr, die 14 Monate des eaKBG voll auszuschöpfen und danach noch einige Monate unbezahlte Karenz dranzuhängen, da ihr selbst nach Abzug der Lebenshaltungskosten in den angehängten, unbezahlten Karenzmonaten unterm Strich eine deutlich höhere Gesamtsumme zur Verfügung habt als im langgestreckten Pauschalmodell (bis zu 2 Jahre möglich)',
+];
 ---
 
 <Layout>
-  <ContentPage title="eaKBG – Anspruch prüfen" step={{ number: '2' }}>
-    <p>
+  <ContentPage title={step.title} step={{ number: step.number }}>
+    <Teaser step={step} />
+    <!-- <p>
+      Grobe Faustregel: Wenn ihr eaKBG-Anspruch habt, dann bekommt ihr in den meisten Fällen mehr
+      Geld bei diesem Fördermodell raus - im Gegensatz zum pauschalen KBG-Konto. Am Ende kommt es
+      aber auf eure individuelle Situation (und euer Gehalt) an, was sich mehr lohnt. Lasst euch
+      hier unbedingt kostenfrei bei AK oder ÖGK beraten!
+    </p> -->
+    <KeyFacts items={keyFacts} title="Crashkurs Kinderbetreuungsgeld" />
+    <TodoIntegrate paragraphs={step.oldTexts ?? []} />
+    <!-- <p>
       Um das einkommensabhängige Kinderbetreuungsgeld (eaKBG) beziehen zu können, müssen einige
       Anspruchsvoraussetzungen (= Bedingungen) erfüllt werden.
-    </p>
+    </p> -->
 
+    <h2>Anspruch auf eaKBG prüfen</h2>
     <h3>1. Beide Elternteile müssen die allgemeinen Bedingungen erfüllen</h3>
     <p>
       <b>Beide Elternteile</b> müssen die <b>allgemeinen Anspruchsvoraussetzungen</b> erfüllen:
@@ -161,7 +185,7 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       <h3>Nächster Schritt: Karenz-Aufteilung planen</h3>
       <p>
         Jetzt geht es ans Eingemachte. Plant die ersten Jahre mit eurem Baby, falls ihr Anspruch auf
-        einkommensabhängiges Kinderbetreuungsgeld (eaKBG) habt:
+        einkommensabhängiges Kinderbetreuungsgeld (eaKBG) habt.
       </p>
 
       <!-- <p>Falls ihr keinen Anspruch habt, könnt ihr euch nun zum KBG Konto informieren:</p>
@@ -188,5 +212,6 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
       </ul>-->
     </section>
   </ContentPage>
-  <NextStep number="3" label="eaKBG Planer" href="/eakbg-planer/" />
+  <MoreInformation step={step} />
+  <NextStep step={step} />
 </Layout>

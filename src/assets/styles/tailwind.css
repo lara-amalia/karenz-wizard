@@ -36,6 +36,14 @@
   .btn-tertiary {
     @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
   }
+
+  .lead {
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgb(15 23 42);
+    text-wrap: pretty;
+  }
 }
 
 #header.scroll > div:first-child {

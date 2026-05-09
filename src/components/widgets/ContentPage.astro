@@ -50,7 +50,7 @@ const containerClasses = ['mx-auto', 'mt-6', 'max-w-3xl', prose ? 'prose' : '']
       <>
         <header class={headerClasses}>
           {step && <StepBreadcrumb number={step.number} total={step.total} />}
-          <h1 class="text-3xl font-semibold text-slate-900">{title}</h1>
+          <h1 class="text-3xl font-semibold text-slate-900" set:html={title} />
           {subtitle && <p class="text-base leading-relaxed text-slate-600">{subtitle}</p>}
           <slot name="subtitle" />
         </header>
@@ -61,7 +61,7 @@ const containerClasses = ['mx-auto', 'mt-6', 'max-w-3xl', prose ? 'prose' : '']
       <div class={containerClasses}>
         <header class={headerClasses}>
           {step && <StepBreadcrumb number={step.number} total={step.total} />}
-          <h1 class="text-3xl font-semibold text-slate-900">{title}</h1>
+          <h1 class="text-3xl font-semibold text-slate-900" set:html={title} />
           {subtitle && <p class="text-base leading-relaxed text-slate-600">{subtitle}</p>}
           <slot name="subtitle" />
         </header>

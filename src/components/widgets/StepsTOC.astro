@@ -1,0 +1,104 @@
+---
+// Sticky TOC for the /schritte-im-ueberblick/ page.
+// Desktop only (lg+): fixed sidebar on the left, no border. Hidden on
+// mobile entirely.
+//
+// Active highlighting via IntersectionObserver: the card currently
+// closest to the top of the viewport is marked with aria-current="step"
+// and the matching link gets the [data-active] data attribute (styled
+// via CSS in the <style> block).
+//
+// The cards on the overview page must carry id="step-{number}" and
+// data-step-target="{number}" for this to work.
+import { steps } from '~/data/steps';
+
+const stripPrefix = (t: string) => t.replace(/^\d+(\.\d+)?\.?\s+/, '');
+
+const items = steps.map((s) => ({
+  number: s.number,
+  title: stripPrefix(s.title).replace(/&shy;/g, ''),
+  anchor: `#step-${s.number}`,
+}));
+---
+
+<aside
+  aria-label="Schritte – Schnellnavigation"
+  class="pointer-events-none fixed inset-y-0 left-4 z-30 hidden w-60 items-center lg:flex"
+>
+  <div class="pointer-events-auto max-h-[80vh] w-full overflow-y-auto p-2">
+    <p class="mb-2 px-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+      Schritte
+    </p>
+    <ol class="space-y-1">
+      {
+        items.map((item) => (
+          <li>
+            <a
+              href={item.anchor}
+              data-toc-link
+              data-toc-target={item.number}
+              class="flex items-start gap-2 rounded-md px-2 py-1.5 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+            >
+              <span class="mt-0.5 w-8 shrink-0 font-heading font-bold tabular-nums text-slate-400">
+                {item.number}
+              </span>
+              <span class="line-clamp-2 leading-snug">{item.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</aside>
+
+<style>
+  /* Active TOC link styling — applied via [data-active] from the script. */
+  [data-toc-link][data-active] {
+    background-color: #c94d54;
+    color: white;
+  }
+  [data-toc-link][data-active] :is(span) {
+    color: white;
+  }
+</style>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]'));
+  const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-step-target]'));
+
+  const setActive = (number: string | null) => {
+    links.forEach((l) => {
+      const active = l.dataset.tocTarget === number;
+      if (active) {
+        l.dataset.active = 'true';
+        l.setAttribute('aria-current', 'step');
+      } else {
+        delete l.dataset.active;
+        l.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  if (targets.length && 'IntersectionObserver' in window) {
+    let lastActive: string | null = null;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .map((e) => ({
+            entry: e,
+            top: (e.target as HTMLElement).getBoundingClientRect().top,
+          }))
+          .sort((a, b) => Math.abs(a.top - 120) - Math.abs(b.top - 120));
+        const next = visible[0]?.entry.target as HTMLElement | undefined;
+        const num = next?.dataset.stepTarget ?? null;
+        if (num && num !== lastActive) {
+          lastActive = num;
+          setActive(num);
+        }
+      },
+      { rootMargin: '-15% 0px -55% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    targets.forEach((t) => observer.observe(t));
+  }
+</script>
