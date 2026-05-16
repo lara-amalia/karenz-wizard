@@ -19,6 +19,7 @@ export type StepLink = {
 
 export type StepCard = {
   kicker?: string; // small uppercase label above the card title
+  kickerMobile?: string; // shorter kicker shown on mobile (<640px); falls back to `kicker`
   ctaLabel?: string; // text on the card's primary CTA button
   ctaLink?: string; // override URL for the CTA button. Defaults to
   // `${step.href}#inhalt` (jumps past the teaser on the subpage).
@@ -54,6 +55,7 @@ export const steps: Step[] = [
     href: '/ak-elternkalender/',
     stepCards: {
       kicker: 'Schritt 1: Keine Frist verpassen',
+      kickerMobile: 'Schritt 1',
       ctaLabel: 'Jetzt beim Elternkalender registrieren',
     },
     teaser: [
@@ -67,6 +69,7 @@ export const steps: Step[] = [
     href: '/info-veranstaltungen/',
     stepCards: {
       kicker: 'Schritt 2: Informiert euch zu Terminen',
+      kickerMobile: 'Schritt 2',
       ctaLabel: 'Mehr zu Info-Veranstaltungen ',
     },
     teaser: [
@@ -80,7 +83,8 @@ export const steps: Step[] = [
     title: '3. Der erste (Papa-)Monat steht dir immer zu! 🥳',
     href: '/fzb-anspruch/',
     stepCards: {
-      kicker: 'Schritt 3: Papamonat & Familienzeitbonus-Anspruch prüfen',
+      kicker: 'Schritt 3: Familienzeitbonus-Anspruch prüfen für Papamonat',
+      kickerMobile: 'Schritt 3: FZB-Anspruch',
       ctaLabel: 'Mehr Infos & Familienzeitbonus-Anspruch prüfen',
     },
     teaser: [
@@ -121,7 +125,8 @@ export const steps: Step[] = [
       '4. Hat mindestens einer von euch Anspruch auf einkommens&shy;abhängiges Kinderbetreuung&shy;sgeld?',
     href: '/eakbg-anspruch/',
     stepCards: {
-      kicker: 'Schritt 4: Die finanzielle Basis',
+      kicker: 'Schritt 4: eaKBG-Anspruch prüfen (182-Tage-Regel)',
+      kickerMobile: 'Schritt 4',
       ctaLabel: 'eaKBG-Anspruch jetzt prüfen',
     },
     teaser: [
@@ -167,6 +172,7 @@ export const steps: Step[] = [
     href: '/eakbg-planer/',
     stepCards: {
       kicker: 'Schritt 5: Die Zeit und Aufteilung',
+      kickerMobile: 'Schritt 5',
       ctaLabel: 'Eure eaKBG-Karenz interaktiv planen',
     },
     teaser: [
@@ -208,6 +214,7 @@ export const steps: Step[] = [
     href: '/unbezahlte-karenz/',
     stepCards: {
       kicker: 'Option: Unbezahlte Karenzmonate anhängen',
+      kickerMobile: 'Option: Unbezahlte Karenz',
       ctaLabel: 'Alles zur unbezahlten Karenz',
       variant: 'sub',
     },
@@ -255,6 +262,7 @@ export const steps: Step[] = [
     href: '/urlaub-karenz-verlaengern/',
     stepCards: {
       kicker: 'Option: Bezahlter (oder unbezahlter) Urlaub',
+      kickerMobile: 'Option: Urlaub',
       ctaLabel: 'Mehr Informationen',
       variant: 'sub',
     },
@@ -292,10 +300,11 @@ export const steps: Step[] = [
   },
   {
     number: '6',
-    title: '6. Ab wann in Fremdbetreuung / Kindergarten?',
+    title: '6. Ab wann soll euer Kind in Fremdbetreuung / Kindergarten gehen?',
     href: '/ab-wann-fremdbetreuung/',
     stepCards: {
       kicker: 'Schritt 6: Die (eigentlich) große Entscheidung',
+      kickerMobile: 'Schritt 6',
       ctaLabel: 'Mehr zur Frage der Fremdbetreuung',
     },
     teaser: [
@@ -307,10 +316,11 @@ export const steps: Step[] = [
   },
   {
     number: '7',
-    title: '7. Eure Planung überprüfen lassen & den Kinderbetreuungsgeld-Antrag stellen',
+    title: '7. Eure Planung überprüfen lassen und den Kinderbetreuungsgeld-Antrag stellen',
     href: '/planung-ueberpruefen-und-antrag-stellen/',
     stepCards: {
       kicker: 'Schritt 7: Beratung nutzen & Antrag',
+      kickerMobile: 'Schritt 7',
       ctaLabel: 'Beratung & Antrag stellen',
     },
     teaser: [
@@ -319,10 +329,11 @@ export const steps: Step[] = [
   },
   {
     number: '8',
-    title: '8. Partnerschaftsbonus',
+    title: '8. Anspruch auf Partnerschaftsbonus',
     href: '/partnerschaftsbonus/',
     stepCards: {
-      kicker: 'Schritt 8',
+      kicker: 'Schritt 8: Kinderbetreuungsgeld 50:50 oder 60:40 aufgeteilt?',
+      kickerMobile: 'Schritt 8',
       ctaLabel: 'Mehr erfahren',
     },
     teaser: [

@@ -28,6 +28,7 @@ const cards = steps.map((s) => ({
   teaser: s.teaser,
   embed: s.moreInformation?.embed?.[0],
   kicker: s.stepCards?.kicker,
+  kickerMobile: s.stepCards?.kickerMobile ?? s.stepCards?.kicker,
   ctaLabel: s.stepCards?.ctaLabel ?? 'Mehr erfahren',
   variant: s.stepCards?.variant,
   openInNewTab: s.stepCards?.openInNewTab ?? false,
@@ -77,9 +78,15 @@ const cards = steps.map((s) => ({
                   {step.number}
                 </span>
                 <div class="flex-1">
+                  {step.kickerMobile && (
+                    <p
+                      class="text-xs font-semibold uppercase tracking-wide text-slate-500 sm:hidden"
+                      set:html={step.kickerMobile}
+                    />
+                  )}
                   {step.kicker && (
                     <p
-                      class="text-xs font-semibold uppercase tracking-wide text-slate-500"
+                      class="hidden text-xs font-semibold uppercase tracking-wide text-slate-500 sm:block"
                       set:html={step.kicker}
                     />
                   )}
