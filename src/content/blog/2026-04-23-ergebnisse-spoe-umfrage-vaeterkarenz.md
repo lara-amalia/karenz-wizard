@@ -56,3 +56,5 @@ Mit E-Mail anmelden ist auf https://www.spoe.at/elternkarenz-ergebnisse/ möglic
 ### Und was passiert jetzt wirklich?
 
 Es ist wirklich klasse, dass hier endlich mal direkt bei den Eltern nachgefragt wird, statt nur über sie zu reden. Es braucht diesen ehrlichen Blick auf den Alltag, um zu verstehen, wo es bei den Rahmenbedingungen überall hakt. Ich hoffe sehr, dass diese Umfrage nicht in der Schublade landet, sondern wirklich der Startschuss für eine modernere und fairere Karenzgestaltung in Österreich ist – Zeit wird es jedenfalls!
+
+<i>Du kannst diesen Beitrag <a href="https://www.instagram.com/p/DYZNVqhiNyL/">auf Instagram kommentieren</a>.</i>

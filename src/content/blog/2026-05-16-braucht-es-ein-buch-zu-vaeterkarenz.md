@@ -42,3 +42,5 @@ Ich bin derweil noch unentschieden, ob sich ein privat initiiertes Mini-Buchproj
 Ebenso könnte ich mir vorstellen, dass die Arbeiterkammer oder ein Verein ein kleines Ratgeber-Heft für "feministische / gleichberechtigte Karenzplanung" heraus gibt. Dort sitzen ja die Expert:innen, die soetwas deutlich schneller und kompetenter anfertigen könnten.
 
 Was denkt ihr? Braucht es ein Buch/Ratgeber für Väterkarenz?
+
+<i>Du kannst diesen Beitrag <a href="https://www.instagram.com/p/DYZNu_xCIhL/">auf Instagram kommentieren</a>.</i>
