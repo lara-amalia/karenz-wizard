@@ -1,5 +1,5 @@
 ---
-title: Ergebnisse SPÖ Umfrage zu Väterkarenz / Elternkarenz veröffentlicht
+title: (Erschreckende) Ergebnisse der SPÖ Umfrage zu Väterkarenz veröffentlicht
 pubDate: 2026-04-23
 slug: ergebnisse-spoe-umfrage-vaeterkarenz
 ---
