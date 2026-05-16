@@ -8,7 +8,7 @@ Die Umfrage hatte ich hier bereits im Blog, nun sind die Ergebnisse da:
 
 > Österreich ist EU-Schlusslicht bei der Väterkarenz. Das hat verschiedene Gründe. Um Hindernisse aufzuzeigen und Erfahrungen von Eltern sichtbar zu machen, hat SPÖ-Familiensprecher Bernhard Herzog eine Online-Umfrage gemacht. Jetzt präsentieren wir die Ergebnisse.
 
-Auch die neue Umfrage von SPÖ-Familiensprecher Bernhard Herzog zeigt:
+Auch diese Umfrage zeigt erneut:
 
 Mütter übernehmen 12 bis 24 Monate Karenz - Väter nur zwei Monate. Wenn überhaupt.
 
