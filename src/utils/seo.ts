@@ -42,6 +42,15 @@ const seoEntries: SeoEntry[] = [
     },
   },
   {
+    match: '/pdf-ratgeber/',
+    meta: {
+      title: 'Ratgeber Väterkarenz – Kostenfreier PDF-Download – Karenz Wizard',
+      description:
+        'Lade dir den Ratgeber mit allen Optionen und Ideen für mehr Väterbeteiligung kostenlos als PDF herunter.',
+      image: '/blog-images/karenz_wizard_buch_share_image.jpg',
+    },
+  },
+  {
     match: '/buecher-broschueren/',
     meta: {
       title: 'Bücher & Broschüren zur Elternkarenz – Karenz Wizard',
