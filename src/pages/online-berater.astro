@@ -11,9 +11,14 @@ import type { Wizard as WizardType } from '~/lib/components/wizard/wizard-types'
 import ContentPage from '~/components/widgets/ContentPage.astro';
 
 const wizard = wizardData as WizardType;
+const metadata = {
+  title: 'Online-Berater (Beta) – Karenz Wizard',
+  description:
+    'Interaktiver Schritt-für-Schritt-Assistent durch Mutterschutz und Karenz. Beta-Version, noch nicht öffentlich freigegeben.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage
     title="Online-Berater"
     subtitle="Ein interaktiver Schritt-für-Schritt-Assistent durch Mutterschutz und Karenz."

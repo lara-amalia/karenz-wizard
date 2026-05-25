@@ -1,13 +1,20 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'Ratgeber Väterkarenz – Kostenfreier PDF-Download – Karenz Wizard',
+  description:
+    'Lade dir den Ratgeber mit allen Optionen und Ideen für mehr Väterbeteiligung kostenlos als PDF herunter.',
+  image: '/blog-images/karenz_wizard_buch_share_image.jpg',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="Ratgeber Väterkarenz – Kostenfreier PDF-Download" showDisclaimer={false}>
+    <p>Ich habe einen ersten Entwurf für einen Ratgeber verfasst! 😮 Freue mich über Feedback!</p>
     <div class="flex flex-col sm:flex-row items-center gap-8 mb-12 pb-12 border-b border-slate-100">
       <a
-        href="/pdf-ratgeber/ratgeber-vaeterkarenz-v0.1-entwurf.pdf"
+        href="/pdf-ratgeber/ratgeber-vaeterkarenz.pdf"
         target="_blank"
         class="block shrink-0 transition hover:opacity-95 mx-auto sm:mx-0"
       >
@@ -35,7 +42,7 @@ import ContentPage from '~/components/widgets/ContentPage.astro';
         </div>
 
         <a
-          href="/pdf-ratgeber/ratgeber-vaeterkarenz-v0.1-entwurf.pdf"
+          href="/pdf-ratgeber/ratgeber-vaeterkarenz.pdf"
           target="_blank"
           class="inline-flex
           text-sm

@@ -1,9 +1,14 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'Sonstige Beratungen – Karenz Wizard',
+  description:
+    'Weitere Anlaufstellen rund um Karenz, Papamonat and Vaterrolle — z.B. der Online-Workshop für werdende Väter auf papainfo.at.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="Sonstige Beratungen & Communities">
     <p>
       Neben der <a href="/ak-beratung/">Arbeiterkammer</a> und der

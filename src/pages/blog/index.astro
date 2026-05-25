@@ -16,9 +16,14 @@ const posts = (await getCollection('blog'))
     pubDate: post.data.pubDate,
     teaser: toTeaser(post.body ?? ''),
   }));
+const metadata = {
+  title: 'Blog – Karenz Wizard',
+  description:
+    'Aktuelle Hinweise zu Kinderbetreuungsgeld, Karenzplanung, Papamonat und neuen Funktionen des Karenz Wizard.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <section class="content">
     <header class="mt-10 space-y-4 text-center">
       <h1 class="text-3xl font-semibold text-slate-900">Blog</h1>

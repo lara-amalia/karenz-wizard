@@ -18,9 +18,15 @@ const latestPosts = (await getCollection('blog'))
     pubDate: post.data.pubDate,
     teaser: toTeaser(post.body ?? ''),
   }));
+
+const metadata = {
+  title: 'Karenz Wizard – Ein Elternzeitplaner für Österreich',
+  description:
+    'Tools und Infos rund um Karenzplanung, Familienzeitbonus, Kinderbetreuungsgeld und Beratungsstellen in Österreich. Für mehr Gleichberechtigung und Väterkarenz!',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <section class="full-bleed">
     <div class="relative w-full bg-white text-slate-900">
       <div class="content px-6 py-12 sm:py-16">

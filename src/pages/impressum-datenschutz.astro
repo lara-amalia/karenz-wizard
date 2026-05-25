@@ -3,9 +3,14 @@
 // SEO from ~/utils/seo.ts via pathname.
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'Impressum & Datenschutz – Karenz Wizard',
+  description:
+    'Rechtliche Informationen, Haftungsausschluss und Hinweise zum Datenschutz für den Karenz Wizard.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="Datenschutz" showDisclaimer={false}>
     <p class="mb-4 text-gray-700">
       Dieses Projekt speichert oder verarbeitet keine personenbezogenen Daten.

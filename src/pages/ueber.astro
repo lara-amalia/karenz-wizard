@@ -2,9 +2,14 @@
 // Ported from src/routes/ueber/+page.svelte (pure markup).
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'Über den Karenz Wizard',
+  description:
+    'Warum dieses Hobbyprojekt entstanden ist, wer dahinter steckt und welche Ziele der Karenz Wizard verfolgt.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="Über" showDisclaimer={false}>
     <p>
       <b>Karenz Wizard</b> - Hilfe zur Selbsthilfe für Väter, die mehr als zwei Monate in Karenz gehen

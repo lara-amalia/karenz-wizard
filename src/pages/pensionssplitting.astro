@@ -8,9 +8,14 @@ import { getStep } from '~/data/steps';
 
 const step = getStep('9')!;
 const keyFacts = ['Punkt 1 - <strong>fett markierter Text</strong>', 'Punkt 2', 'Punkt 3'];
+const metadata = {
+  title: 'Pensionssplitting – Karenz Wizard',
+  description:
+    'Pensionssplitting während der Karenz: Was es ist und wie ihr es als Paar angehen könnt.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title={step.title} step={{ number: step.number }}>
     <Teaser step={step} />
     <!--<KeyFacts items={keyFacts} /> -->

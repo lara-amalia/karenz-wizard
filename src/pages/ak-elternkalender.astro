@@ -7,9 +7,14 @@ import MoreInformation from '~/components/widgets/MoreInformation.astro';
 import { getStep } from '~/data/steps';
 
 const step = getStep('1')!;
+const metadata = {
+  title: 'AK Elternkalender – Karenz Wizard',
+  description:
+    'Damit ihr keine Fristen verpasst: der Elternkalender der Arbeiterkammer als praktischer Begleiter durch Karenz und Antragsfristen.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title={step.title} step={{ number: step.number }} showDisclaimer={false}>
     <Teaser step={step} />
     <p class="text-center">

@@ -33,9 +33,14 @@ const cards = steps.map((s) => ({
   variant: s.stepCards?.variant,
   openInNewTab: s.stepCards?.openInNewTab ?? false,
 }));
+const metadata = {
+  title: 'Die Schritte im Überblick – Karenz Wizard',
+  description:
+    'Einstieg in die Karenzplanung für werdende Eltern in Österreich — Papamonat, eaKBG, Karenzaufteilung, Eltern-Teilzeit, unbezahlte Karenz und Fremdbetreuung auf einen Blick.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage
     title="Die Schritte im Überblick"
     align="center"

@@ -169,9 +169,14 @@ const akList: AkEntry[] = [
     ],
   },
 ];
+const metadata = {
+  title: 'AK Beratung & Kontaktstellen – Karenz Wizard',
+  description:
+    'Links zur Arbeiterkammer und anderen Beratungsstellen für Karenz, Familienzeitbonus und Mitversicherung.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="Kostenfreie Beratung bei der Arbeiterkammer" showDisclaimer={false}>
     <div class="mt-6">
       <p>

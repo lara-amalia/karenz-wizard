@@ -10,9 +10,14 @@ import { getStep } from '~/data/steps';
 
 const step = getStep('5.1')!;
 const keyFacts = ['Punkt 1 - <strong>fett markierter Text</strong>', 'Punkt 2', 'Punkt 3'];
+const metadata = {
+  title: 'Unbezahlte Karenz planen – Karenz Wizard',
+  description:
+    'Infos zur Verlängerung nach eaKBG: Mitversicherung, finanzielle Planung und mögliche Stolperfallen.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title={step.title} step={{ number: step.number }}>
     <Teaser step={step} />
     <!--<KeyFacts items={keyFacts} /> -->

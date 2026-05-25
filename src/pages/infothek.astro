@@ -5,9 +5,14 @@
 // /videos -> /infothek/#videos).
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'Infothek & Ressourcen – Karenz Wizard',
+  description:
+    'Kuratiertes Wissen zu Gleichberechtigung, Karenz, Tools und Videos – alles auf einen Blick für eure Planung.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage
     title="Infothek"
     subtitle="Gesammelte Ressourcen für Planung, Gleichberechtigung und Engagement."

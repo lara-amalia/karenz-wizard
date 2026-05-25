@@ -15,7 +15,6 @@ import SiteVerification from '~/components/common/SiteVerification.astro';
 
 import HeaderKW from '~/components/widgets/HeaderKW.astro';
 import FooterKW from '~/components/widgets/FooterKW.astro';
-import { getSeoMeta } from '~/utils/seo';
 
 // Default og:image lives in public/ (stable URL for social-platform caches).
 // See discussion: hashed /_astro/ URLs break historical social previews when the hash changes.
@@ -31,15 +30,18 @@ export interface Props {
 
 const { metadata = {} } = Astro.props;
 const pathname = Astro.url.pathname;
-const seo = getSeoMeta(pathname);
 
-const pageTitle = metadata.title ?? seo.title;
-const pageDescription = metadata.description ?? seo.description;
+// Default SEO values (merged from src/utils/seo.ts)
+const DEFAULT_TITLE = 'Karenz Wizard – Ein Elternzeitplaner für Österreich';
+const DEFAULT_DESCRIPTION = 'Tools und Infos rund um Karenzplanung, Familienzeitbonus, Kinderbetreuungsgeld und Beratungsstellen in Österreich. Für mehr Gleichberechtigung und Väterkarenz!';
+
+const pageTitle = metadata.title ?? DEFAULT_TITLE;
+const pageDescription = metadata.description ?? DEFAULT_DESCRIPTION;
 
 // Canonical + absolute og:image URL. Astro.site is set in astro.config.ts.
-// Fallback chain: per-page override → route-lookup → global default.
+// Fallback chain: per-page override → global default.
 const canonicalUrl = new URL(pathname, Astro.site).toString();
-const ogImagePath = metadata.image ?? seo.image ?? OG_IMAGE_DEFAULT;
+const ogImagePath = metadata.image ?? OG_IMAGE_DEFAULT;
 const ogImageUrl = new URL(ogImagePath, Astro.site).toString();
 
 const layoutVariant = pathname === '/' ? 'home' : 'subpages';

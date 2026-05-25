@@ -3,9 +3,14 @@
 // SEO title/description come from ~/utils/seo.ts via pathname lookup.
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'Reaktionen & Feedback – Karenz Wizard',
+  description:
+    'Stimmen aus der Community, Rückmeldungen von Eltern und Hinweise, wie du Feedback zum Karenz Wizard geben kannst.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="Reaktionen und Feedback" showDisclaimer={false}>
     <blockquote
       class="not-prose mt-6 rounded-lg border border-slate-200 bg-slate-50 p-6 text-base text-slate-800"

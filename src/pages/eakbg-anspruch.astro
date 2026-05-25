@@ -19,9 +19,14 @@ const keyFacts = [
   '<strong>Grobe Faustregel: Falls ihr Anspruch auf das einkommensabhängige Kinderbetreuungsgeld habt, bekommt ihr in den meisten Fällen deutlich mehr Geld raus.</strong> Während der Gesamttopf beim pauschalen Kinderbetreungsgeld-Konto für beide Elternteile bei ca. 18.760 € gedeckelt ist (maximal 41,14 € pro Tag), könnt ihr beim eaKBG insgesamt bis zu ca. 34.130 € an Transferleistungen abholen, da der Höchstsatz hier bei stolzen 80,12 € pro Tag liegt (abhängig vom Gehalt).',
   'Daher lohnt es sich finanziell oft mehr, die 14 Monate des eaKBG voll auszuschöpfen und danach noch einige Monate unbezahlte Karenz dranzuhängen, da ihr selbst nach Abzug der Lebenshaltungskosten in den angehängten, unbezahlten Karenzmonaten unterm Strich eine deutlich höhere Gesamtsumme zur Verfügung habt als im langgestreckten Pauschalmodell (bis zu 2 Jahre möglich)',
 ];
+const metadata = {
+  title: 'eaKBG Anspruch prüfen – Karenz Wizard',
+  description:
+    'Checkliste für das einkommensabhängige Kinderbetreuungsgeld: Voraussetzungen, Fristen und Tipps für Mutter und Vater.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title={step.title} step={{ number: step.number }}>
     <Teaser step={step} />
     <!-- <p>

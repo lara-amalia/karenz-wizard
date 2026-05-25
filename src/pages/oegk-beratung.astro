@@ -3,9 +3,14 @@
 // Placeholder content while the real copy is in Arbeit.
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'ÖGK-Beratung – Karenz Wizard',
+  description:
+    'Kontaktstellen und Informationen der Österreichischen Gesundheitskasse (ÖGK) zu Kinderbetreuungsgeld, Krankenversicherung und Mitversicherung während der Karenz.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="ÖGK-Beratung" showDisclaimer={false}>
     <p>
       Dein Kinderbetreuungsgeld beantragst du direkt bei der Österreichischen Gesundheitskasse

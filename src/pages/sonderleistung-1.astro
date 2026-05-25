@@ -1,9 +1,14 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import ContentPage from '~/components/widgets/ContentPage.astro';
+const metadata = {
+  title: 'Sonderleistung 1 – Karenz Wizard',
+  description:
+    'Sonderleistung 1 als Basissatz beim einkommens-abhängigen Kinder-betreuungsgeld — wann und für wen.',
+};
 ---
 
-<Layout>
+<Layout {metadata}>
   <ContentPage title="Sonderleistung 1">
     <p class="font-semibold">
       Wenn nur ein Elternteil Anspruch auf einkommensabhängiges Kinderbetreuungsgeld hat, das andere
