@@ -84,13 +84,18 @@ const navItems: NavItem[] = [
     children: [
       { label: 'Über diese Webseite', href: '/ueber/', matchPath: '/ueber' },
       { label: 'Infothek', href: '/infothek/', matchPath: '/infothek' },
+      {
+        label: 'PDF-Ratgeber',
+        href: '/pdf-ratgeber/',
+        matchPath: '/pdf-ratgeber/',
+      },
       { label: 'Pauschales KBG', href: '/pauschales-kbg/', matchPath: '/pauschales-kbg' },
-
       {
         label: 'ea KBG: Sonderleistung 1',
         href: '/sonderleistung-1/',
         matchPath: '/sonderleistung-1',
       },
+
       {
         label: 'Reaktionen & Feedback',
         href: '/reaktionen-und-feedback/',
@@ -238,6 +243,14 @@ const mobileLinkClasses = (item: NavLink) =>
       eaKGB-Planer
     </a>
 
+    <a
+      href="/pdf-ratgeber/"
+      class="hidden text-sm items-center justify-center whitespace-nowrap rounded-full md:inline-flex border-2 border-slate-300 bg-white px-5 py-2.5 font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
+    >
+      Ratgeber (PDF)
+    </a>
+
+    <!-- TODO: remove? -->
     {
       showOnlineBerater && (
         <a

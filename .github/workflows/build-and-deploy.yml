@@ -1,26 +1,47 @@
 name: Build and Deploy
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 jobs:
-    build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout 🛎️
-              uses: actions/checkout@v4
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
 
-            - name: Install and Build 🔧
-              run: |
-                  npm ci
-                  npm run build
+      - name: Cache Ratgeber PDF 缓存 📥
+        id: cache-pdf
+        uses: actions/cache@v4
+        with:
+          path: public/pdf-ratgeber/ratgeber-vaeterkarenz.pdf
+          key: pdf-${{ hashFiles('typst/ratgeber-vaeterkarenz.typ') }}
 
-            - name: 📂 Deploy via rsync
-              uses: burnett01/rsync-deployments@v8
-              with:
-                  switches: -avzr --delete
-                  path: dist/
-                  remote_path: /home/sites/site100026635/web/karenz-wizard.at/
-                  remote_host: ${{ secrets.RSYNC_HOST }}
-                  remote_user: ${{ secrets.RSYNC_USER }}
-                  remote_key: ${{ secrets.RSYNC_SSH_KEY }}
+      - name: Setup Typst 📝
+        if: steps.cache-pdf.outputs.cache-hit != 'true'
+        uses: typst-community/setup-typst@v4
+        with:
+          typst-version: "0.14.2"
+
+      - name: Compile PDF 🔧
+        if: steps.cache-pdf.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p public/pdf-ratgeber/
+          typst compile --font-path typst/fonts \
+            typst/ratgeber-vaeterkarenz.typ \
+            public/pdf-ratgeber/ratgeber-vaeterkarenz.pdf
+
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run build
+
+      - name: 📂 Deploy via rsync
+        uses: burnett01/rsync-deployments@v8
+        with:
+          switches: -avzr --delete
+          path: dist/
+          remote_path: /home/sites/site100026635/web/karenz-wizard.at/
+          remote_host: ${{ secrets.RSYNC_HOST }}
+          remote_user: ${{ secrets.RSYNC_USER }}
+          remote_key: ${{ secrets.RSYNC_SSH_KEY }}
