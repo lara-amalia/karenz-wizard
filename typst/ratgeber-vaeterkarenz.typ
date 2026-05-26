@@ -433,7 +433,13 @@ Ich finde, gleichberechtigte Elternschaft ist muss das Zielbild für unsere Zuku
 
 === Rückkehr in den Job als zentrales Thema
 
-Zu beachten ist hier natürlich, dass Stillen/Abpumpen - falls möglich / gewünscht - eine gewichtige Rolle spielt. Das Thema "Rückkehr in den Job" ist hier zentral für die Mutter.
+Das Thema "Rückkehr in den Job" ist hier zentral für die Mutter. Zu beachten ist hier natürlich, dass Stillen/Abpumpen - falls möglich / gewünscht - eine gewichtige Rolle spielt. 
+
+=== Recht auf Stillpausen
+ Ab einer Tages-Arbeitszeit von 4,5 Stunden hat die (stillende) Mutter Anspruch auf 45 Minuten bezahlte Pause für Stillen/Abpumpen. Bei 8 Stunden sind zwei 45 Minuten Pausen vorgesehen, die auch zusammengelegt  werden können. Die Pausen können unter Umständen auch an das Ende des Arbeitstags verlegt werden, sodass die Mutter früher nach Hause geht. Alle Informationen finden sich bei der AK:
+
+#qrbox("https://www.arbeiterkammer.at/stillpause")[Recht auf Stillzeiten
+]
 
 === Eltern-Teilzeit (mit Kündigungsschutz) erst nach Ende der Väterkarenz
 
@@ -848,12 +854,13 @@ Der Karenz Wizard ist ein Gemeinschaftsprojekt für mehr Väterbeteiligung.
 
 - Dieser Ratgeber zeigt nur *Möglichkeiten im bestehenden Sozialsystem
   Österreichs* auf. Politische und systemische Veränderungen sind das
-  andere, ebenso wichtige Thema, wofür es sich einzusetzen lohnt.
+  andere, ebenso wichtige Thema, wofür es sich einzusetzen lohnt. Hier gibt es noch viel zu tun!
 - *Eine Frage der (finanziellen) Möglichkeiten*: Karenzplanung ist auch
   eine Frage der finanziellen Ressourcen — *einige Optionen stehen nur
   privilegierten Personen (mit finanziellem Puffer) zur Verfügung*.
   Insbesondere bei steigenden Miet- und Lebenshaltungskosten verschärft
   sich diese Ungleichheit potenziell noch mehr.
 - Nicht zuletzt *berichten auch einige Väter von Diskriminierungen im Job, wenn sie ihre Elternzeit in Anspruch nehmen möchten*. Es hängt also von vielen Faktoren ab.
+- *Warum hörte man bisher so wenig von der 14-Monate-Herausforderung?* Bisher behalfen sich Familien auch oft mit der Bildungskarenz im zweiten Jahr. Das erste Jahr war gefördert mit einkommensabhängigem Kinderbetreuungsgeld - das zweite Jahr durch Bildungskarenz, bei welcher ein Elternteil sich zuhause in einem Online-Kurs weiterqualifizierte und das Kind betreute. Eine "Brücke zurück ins Erwerbsleben". Seit Anfang 2026 ist dies nicht mehr erlaubt: *Bildungskarenz nach der Elternzeit nicht mehr erlaubt* (#link("https://karenz-wizard.at/blog/bildungskarenz-bruecke-erwerbsleben-entfaellt/")[karenz-wizard.at/blog/bildungskarenz-bruecke-erwerbsleben-entfaellt/]). Für jetzige Eltern fällt also eine bezahlte Option komplett weg.
 - Der Ratgeber *leider noch nicht bzgl. Regenbogenfamilien optimiert*. Ich bitte dies zu entschuldigen! (Falls jemand hierzu unterstützen kann, ob rechtlich alles gleichgestellt ist - gerne melden!)
 
