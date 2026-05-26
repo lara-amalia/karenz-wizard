@@ -11,7 +11,7 @@ Aber zu diesem Thema wäre ein Buch / kleiner Ratgeber definitiv sinnvoll:
 
 „Wie man als Vater mehr als 2 Monate Karenz nimmt - oder anderweitig mehr Verantwortung übernimmt in den ersten Jahren mit Kind"
 
-**Update - 26.05.2026: Ich habe einen <a href="/pdf-ratgeber/" class="underline">ersten Entwurf für einen Ratgeber</a> verfasst. 😮 Freue mich über Feedback, sehr gerne auch kritisch!**
+**Update - 26.05.2026:** Ich habe einen <a href="/pdf-ratgeber/" class="underline">ersten Entwurf für einen Ratgeber</a> verfasst. 😮 Freue mich über Feedback, sehr gerne auch kritisch!
 
 <img src="/blog-images/karenz_wizard_buch_share_image.jpg" alt="">
 
