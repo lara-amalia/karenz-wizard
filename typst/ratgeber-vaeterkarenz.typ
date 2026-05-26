@@ -271,6 +271,8 @@
 
   Autor: Matthias Andrasch für karenz-wizard.at \
   Freigeben als #link("https://creativecommons.org/publicdomain/zero/1.0/")[https://\u{200B}creativecommons.org/\u{200B}publicdomain/\u{200B}zero/\u{200B}1.0]
+
+  Erstellt und generiert mit der Open Source Software #link("https://github.com/typst/typst")[typst]. Der Quelltext dieses Ratgebers ist auf GitHub abrufbar (#link("https://github.com/mandrasch/karenz-wizard")[github.com/mandrasch/karenz-wizard]).
 ]
 
 // TODO: Größtes Problem noch - ist für eaKBG geschrieben, für alle schreiben? Oder vom "Durchschnittsfall" ausgehen?
