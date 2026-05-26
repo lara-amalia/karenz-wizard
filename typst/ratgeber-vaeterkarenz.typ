@@ -420,7 +420,7 @@ So ist also auch eine *10+4* oder *8+6* Aufteilung möglich - bis hin zu *7+7, o
 
 // TODO: Freigabe einholen, Vater also 24 Monate?
 
-Ines Eschenbacher, vom Podcast #link("https://www.instagram.com/vereinbarkeitnext.podcast/")[Vereinbarkeit Next], berichtet auf #link("https://www.linkedin.com/feed/update/urn:li:activity:7459178598302916608/?dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287463655469090521088%2Curn%3Ali%3Aactivity%3A7459178598302916608%29")[LinkedIn]:
+Ines Eschbacher, vom Podcast #link("https://www.instagram.com/vereinbarkeitnext.podcast/")[Vereinbarkeit Next], berichtet auf #link("https://www.linkedin.com/feed/update/urn:li:activity:7459178598302916608/?dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287463655469090521088%2Curn%3Ali%3Aactivity%3A7459178598302916608%29")[LinkedIn]:
 
   #set quote(block: true)
   #quote(
