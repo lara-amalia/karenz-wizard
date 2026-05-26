@@ -85,7 +85,7 @@ const navItems: NavItem[] = [
       { label: 'Über diese Webseite', href: '/ueber/', matchPath: '/ueber' },
       { label: 'Infothek', href: '/infothek/', matchPath: '/infothek' },
       {
-        label: 'PDF-Ratgeber',
+        label: 'Ratgeber (PDF)',
         href: '/pdf-ratgeber/',
         matchPath: '/pdf-ratgeber/',
       },
@@ -247,7 +247,7 @@ const mobileLinkClasses = (item: NavLink) =>
       href="/pdf-ratgeber/"
       class="hidden text-sm items-center justify-center whitespace-nowrap rounded-full md:inline-flex border-2 border-slate-300 bg-white px-5 py-2.5 font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
     >
-      Ratgeber (PDF)
+      Ratgeber-Download
     </a>
 
     <!-- TODO: remove? -->
@@ -305,7 +305,7 @@ const mobileLinkClasses = (item: NavLink) =>
 >
   <div class="flex items-center justify-between border-b border-slate-200 px-4 py-4 sm:px-6">
     <a class="text-lg font-bold tracking-tight text-slate-950" href="/" data-close-menu>
-      Karenz Wizard 🪄
+      Karenz Wizard
     </a>
     <button
       type="button"
@@ -371,16 +371,24 @@ const mobileLinkClasses = (item: NavLink) =>
         )
       }
 
-      <li class="mt-2 border-t border-slate-200 pt-2">
+      <li class="mt-2 border-t border-slate-200 pt-4">
         <a
           href="/eakbg-planer/"
           class="mx-3 inline-flex items-center justify-center rounded-full bg-[#C94D54] px-5 py-3 text-base font-semibold text-white transition hover:bg-[#b64048] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C94D54]"
           data-close-menu
         >
-          Planer starten
+          eaKBG-Planer
         </a>
       </li>
-
+      <li class="mt-2 pt-2 pb-4 border-b border-slate-200">
+        <a
+          href="/pdf-ratgeber/"
+          class="mx-3 inline-flex items-center justify-center whitespace-nowrap rounded-full md:inline-flex border-2 border-slate-300 bg-white px-5 py-2.5 font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
+          data-close-menu
+        >
+          Ratgeber-Download
+        </a>
+      </li>
       {
         mobileOnlyItems.map((item) => (
           <li>
