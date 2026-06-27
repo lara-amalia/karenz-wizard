@@ -2,6 +2,7 @@
 title: 'Presseanfrage ÖGK: Infos "Unbezahlte Karenz und ÖGK Mitversicherung - haushaltsführende Person"'
 pubDate: 2025-11-01
 slug: presseanfrage-oegk-unbezahlte-karenz-mitversicherung-haushaltsfuehrende-person
+author: matthias-andrasch
 ---
 
 Am 15.08.2025 stellte ich diese Anfrage an das ÖGK-Presseteam, ~~bisher leider unbeantwortet~~:

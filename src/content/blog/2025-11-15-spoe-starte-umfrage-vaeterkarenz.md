@@ -2,6 +2,7 @@
 title: SPÖ startet Umfrage zu Väterkarenz/Elternkarenz
 pubDate: 2025-11-15
 slug: spo-startet-umfrage-vaeterkarenz-elternkarenz
+author: matthias-andrasch
 ---
 
 > Österreich ist EU-Schlusslicht bei der Väterkarenz. Das hat verschiedene Gründe. Um Hindernisse aufzuzeigen und Erfahrungen von Eltern sichtbar zu machen, startet SPÖ-Familiensprecher Bernhard Herzog eine Online-Umfrage. Auf Basis der Ergebnisse werden Vorschläge für mehr Väterbeteiligung erarbeitet.

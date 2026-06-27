@@ -9,8 +9,18 @@
 // across filename refactors (this is why getStaticPaths in
 // src/pages/blog/[...slug].astro uses post.data.slug, not post.id).
 
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { defineCollection, reference, z } from 'astro:content';
+import { glob, file } from 'astro/loaders';
+
+const authors = defineCollection({
+  loader: file('src/data/authors.json'),
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    avatar: z.string(),
+    bio: z.string(),
+  }),
+});
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: 'src/content/blog' }),
@@ -25,7 +35,9 @@ const blog = defineCollection({
     // Recommended dimensions: 1200×630 px (1.91:1), PNG or JPEG, < ~1 MB.
     // Example: ogImage: /blog-images/my-custom-share.png
     ogImage: z.string().optional(),
+    author: reference('authors').optional(),
+    guestPost: z.boolean().optional(),
   }),
 });
 
-export const collections = { blog };
+export const collections = { blog, authors };

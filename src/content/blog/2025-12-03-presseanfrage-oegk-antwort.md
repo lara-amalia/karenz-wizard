@@ -2,6 +2,7 @@
 title: 'Antwort der ÖGK zur Anfrage "Unbezahlte Karenz und Mitversicherung - haushaltsführende Person" (unverheiratete Paare)'
 pubDate: 2025-12-03
 slug: antwort-presseanfrage-oegk-unbezahlte-karenz-mitversicherung
+author: matthias-andrasch
 ---
 
 Gut Ding will - manchmal - Weile haben. Die ÖGK hat sich netterweise gestern bei mir gemeldet bzgl. meiner Presseanfrage "Unbezahlte Karenz und Mitversicherung - haushaltsführende Person (unverheiratete Paare)" und sich zudem für die späte Antwort entschuldigt. Vielen Dank!

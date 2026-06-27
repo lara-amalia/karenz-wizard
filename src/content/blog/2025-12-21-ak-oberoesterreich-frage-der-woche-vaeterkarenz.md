@@ -2,6 +2,7 @@
 title: 'AK OÖ: Warum sollten mehr Papas in Karenz gehen?'
 pubDate: 2025-12-21
 slug: ak-oberoesterreich-frage-der-woche-vaeterkarenz
+author: matthias-andrasch
 ---
 
 Die AK Oberösterreich stellte kürzlich auf Instagram die Frage:

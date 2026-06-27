@@ -2,6 +2,7 @@
 title: (Erschreckende) Ergebnisse der SPÖ Umfrage zu Väterkarenz veröffentlicht
 pubDate: 2026-04-23
 slug: ergebnisse-spoe-umfrage-vaeterkarenz
+author: matthias-andrasch
 ---
 
 Die Umfrage hatte ich hier bereits im Blog, nun sind die Ergebnisse da:

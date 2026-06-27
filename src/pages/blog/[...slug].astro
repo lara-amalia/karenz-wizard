@@ -6,8 +6,7 @@
 // CRITICAL: slug comes from post.data.slug (frontmatter), NOT post.id
 // (filename). Preserves URL stability across filename renames.
 import Layout from '~/layouts/Layout.astro';
-import Disclaimer from '~/components/widgets/Disclaimer.astro';
-import { getCollection, render } from 'astro:content';
+import { getCollection, render, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -21,6 +20,17 @@ export async function getStaticPaths() {
 type Props = { post: CollectionEntry<'blog'> };
 const { post } = Astro.props as Props;
 const { Content } = await render(post);
+
+// Retrieve author with fallback
+const authorEntry = post.data.author
+  ? await getEntry(post.data.author)
+  : await getEntry('authors', 'matthias-andrasch');
+const author = authorEntry?.data ?? {
+  id: 'matthias-andrasch',
+  name: 'Matthias Andrasch',
+  avatar: '/avatar.png',
+  bio: 'Matthias Andrasch ist freiberuflicher Webentwickler und Blogger aus Wien. Er hat den Karenz Wizard entwickelt, um Eltern bei der komplizierten Karenzplanung in Österreich zu unterstützen. Mehr Infos über seine Projekte gibt es auf <a href="https://mandrasch.dev" target="_blank" class="underline text-primary">mandrasch.dev</a>.',
+};
 
 const dateFormatter = new Intl.DateTimeFormat('de-AT', {
   day: '2-digit',
@@ -43,34 +53,14 @@ const metadata = {
   <section class="mx-auto py-12 sm:py-20 lg:py-24">
     <article>
       <header>
-        <!-- Back link + date meta row -->
-        <div
-          class="mx-auto mb-8 flex max-w-3xl flex-col justify-between px-4 sm:flex-row sm:items-center sm:px-6"
-        >
+        <!-- Back link row -->
+        <div class="mx-auto mb-8 flex max-w-3xl px-4 sm:px-6">
           <a
             href="/blog/"
             class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 underline decoration-dotted underline-offset-4 transition hover:text-slate-900"
           >
             <span aria-hidden="true">←</span> Zurück zur Übersicht
           </a>
-          <p class="mt-2 text-sm text-muted sm:mt-0">
-            <svg
-              aria-hidden="true"
-              class="-mt-0.5 inline-block h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="9"></circle>
-              <polyline points="12 7 12 12 15 15"></polyline>
-            </svg>
-            <time datetime={post.data.pubDate.toISOString()} class="inline-block">
-              {formattedDate}
-            </time>
-          </p>
         </div>
 
         <!-- AstroWind-style large tight heading -->
@@ -82,11 +72,57 @@ const metadata = {
 
         {
           post.data.description && (
-            <p class="mx-auto mb-12 mt-6 max-w-3xl px-4 text-xl leading-relaxed text-muted sm:px-6 md:text-2xl">
+            <p class="mx-auto mb-6 mt-6 max-w-3xl px-4 text-xl leading-relaxed text-muted sm:px-6 md:text-2xl">
               {post.data.description}
             </p>
           )
         }
+
+        <!-- Author row -->
+        <div class="mx-auto mb-12 mt-6 flex max-w-3xl items-center gap-3 px-4 sm:px-6">
+          {
+            author.avatar && (
+              <a href="#author-info" class="flex-shrink-0">
+                <img
+                  src={author.avatar}
+                  alt={author.name}
+                  class="h-10 w-10 rounded-full border border-slate-200 object-cover hover:opacity-80 transition"
+                  width="40"
+                  height="40"
+                />
+              </a>
+            )
+          }
+          <div>
+            <p class="text-sm font-semibold text-slate-800">
+              {
+                post.data.guestPost ? (
+                  <span>
+                    Gastbeitrag von{" "}
+                    <a
+                      href="#author-info"
+                      class="hover:text-slate-600 transition"
+                    >
+                      {author.name}
+                    </a>
+                  </span>
+                ) : (
+                  <a
+                    href="#author-info"
+                    class="hover:text-slate-600 transition"
+                  >
+                    {author.name}
+                  </a>
+                )
+              }
+            </p>
+            <p class="text-xs text-muted">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {formattedDate}
+              </time>
+            </p>
+          </div>
+        </div>
       </header>
 
       <!-- AstroWind-style prose stack -->
@@ -94,6 +130,42 @@ const metadata = {
         class="prose prose-slate prose-lg mx-auto mt-10 max-w-3xl px-4 sm:px-6 prose-headings:scroll-mt-[80px] prose-headings:font-heading prose-headings:font-bold prose-headings:leading-tight prose-headings:tracking-tight prose-a:text-primary prose-img:rounded-md prose-img:shadow-lg prose-li:my-0"
       >
         <Content />
+      </div>
+
+      <!-- Author Bio Box -->
+      <div id="author-info" class="mx-auto mt-16 max-w-3xl px-4 sm:px-6 scroll-mt-[100px]">
+        <div
+          class="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start"
+        >
+          {
+            author.avatar && (
+              <img
+                src={author.avatar}
+                alt={author.name}
+                class="h-16 w-16 sm:h-20 sm:w-20 rounded-full border-2 border-white shadow-sm object-cover flex-shrink-0"
+                width="80"
+                height="80"
+              />
+            )
+          }
+          <div class="space-y-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <h3 class="text-lg font-bold text-slate-900">
+                {post.data.guestPost ? `Gastbeitrag von ${author.name}` : `Über den Autor: ${author.name}`}
+              </h3>
+              {
+                post.data.guestPost && (
+                  <span class="inline-flex items-center rounded-full bg-slate-200/80 px-2.5 py-0.5 text-xs font-medium text-slate-800">
+                    Gastbeitrag
+                  </span>
+                )
+              }
+            </div>
+            <div class="text-sm leading-relaxed text-slate-600">
+              <Fragment set:html={author.bio} />
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </section>

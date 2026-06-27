@@ -2,6 +2,7 @@
 title: „Frauenministerin Holzleitner langfristig für Halbe-Halbe bei Karenz“
 pubDate: 2025-11-10
 slug: halbe-halbe-bei-karenz
+author: matthias-andrasch
 ---
 
 Ich bin erst jetzt auf diese Pressemeldung aufmerksam geworden, über die mehrere Medien im Sommer 2025 berichteten:

@@ -2,6 +2,7 @@
 title: 'Bildungskarenz nach der Elternzeit nicht mehr möglich'
 pubDate: 2025-11-16
 slug: bildungskarenz-bruecke-erwerbsleben-entfaellt
+author: matthias-andrasch
 ---
 
 Ab 2026 ersetzt die Weiterbildungszeit die bisherige Bildungskarenz. Eine Bildungskarenz direkt nach der Elternzeit/Karenz - ein soweit ich es mitbekommen habe, bisher sehr beliebtes Modell für das zweite Jahr mit dem Baby - wird dann höchstwahrscheinlich **nicht** mehr möglich sein. Barbara Blaha kommentiert wie folgt:

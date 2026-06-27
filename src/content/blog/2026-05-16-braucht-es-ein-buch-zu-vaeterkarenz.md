@@ -3,6 +3,7 @@ title: Braucht es ein Buch zu Väterkarenz?
 pubDate: 2026-05-16
 slug: braucht-es-ein-buch-vaeterkarenz
 ogImage: /blog-images/karenz_wizard_buch_share_image.jpg
+author: matthias-andrasch
 ---
 
 Ich wollte nie ernsthaft ein Buch schreiben, Webseiten gestalten bringt mir mehr Freude.

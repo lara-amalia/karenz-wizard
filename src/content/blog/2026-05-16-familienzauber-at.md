@@ -2,6 +2,7 @@
 title: Familienzauber.at - roter Faden für werdende Eltern (inkl. Finanzkompass)
 pubDate: 2026-05-16
 slug: familienzauber-at
+author: matthias-andrasch
 ---
 
 Auf Instagram bin ich auf das Projekt familienzauber.at aufmerksam geworden.

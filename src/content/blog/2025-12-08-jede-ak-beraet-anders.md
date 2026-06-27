@@ -2,6 +2,7 @@
 title: Jede AK berät anders?
 pubDate: 2025-12-08
 slug: jede-ak-beraet-anders
+author: matthias-andrasch
 ---
 
 Als ich meine erste Anfrage zur Elternkarenz, unbezahlter Karenz (und Halbe-Halbe) an die Arbeiterkammer Wien richtete per Online-Formular, wurde mir prompt ein Beratungstermin angeboten. 👍
